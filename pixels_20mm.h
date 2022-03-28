@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "cnc3018.h"
+#include "cnc20mm.h"
 
 #ifdef WITH_PIXELS
 

@@ -1,10 +1,10 @@
 //----------------------------------------------------
-// cnc3018.ino
+// cnc20mm.ino
 //----------------------------------------------------
 
 #include <FluidNC.h>
-#include "cnc3018.h"
-#include "my_pixels.h"
+#include "cnc20mm.h"
+#include "pixels_20mm.h"
 
 
 #define INIT_SD_DURING_SETUP
@@ -87,7 +87,7 @@ void setup()
     #endif
 
     #ifdef INIT_SD_DURING_SETUP
-        g_debug("cnc3018.ino SD.begin() %s during setup()",sd_ok?"WORKED OK":"FAILED");
+        g_debug("cnc20mm.ino SD.begin() %s during setup()",sd_ok?"WORKED OK":"FAILED");
     #endif
 
     #ifdef INIT_SD_AGAIN
@@ -102,7 +102,7 @@ void setup()
 		start_pixels();
 	#endif
 
-    g_debug("cnc3018.ino setup(core %d) completed %d/%dK",
+    g_debug("cnc20mm.ino setup(core %d) completed %d/%dK",
         xPortGetCoreID(),
         xPortGetFreeHeapSize()/1024,
         xPortGetMinimumEverFreeHeapSize()/1024);
@@ -117,8 +117,8 @@ void setup()
 
 void loop()
 {
-    g_debug("cnc3018.ino loop() started %d/%dK",xPortGetFreeHeapSize()/1024,xPortGetMinimumEverFreeHeapSize()/1024);
+    g_debug("cnc20mm.ino loop() started %d/%dK",xPortGetFreeHeapSize()/1024,xPortGetMinimumEverFreeHeapSize()/1024);
     run_once();		// FluidNC loop() method
     delay(1000);    // for display of following message to work with FluidNC asynch debug output
-    g_debug("cnc3018.ino loop() completed %d/%dK",xPortGetFreeHeapSize()/1024,xPortGetMinimumEverFreeHeapSize()/1024);
+    g_debug("cnc20mm.ino loop() completed %d/%dK",xPortGetFreeHeapSize()/1024,xPortGetMinimumEverFreeHeapSize()/1024);
  }

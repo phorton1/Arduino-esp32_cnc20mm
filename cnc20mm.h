@@ -1,16 +1,10 @@
-// cnc3018.h
+// cnc20mm.h
 
 #pragma once
 
-#define CNC_MACHINE_NUMBER   3
-    // We also want/need to change the MESH pulloff to (at least)
-    // 5 mm on these newer machines
-
-//#if CNC_MACHINE_NUMBER < 3
-    #define WITH_UI         // requires FluidNC_UI
-//    #define WITH_MESH       // FluidNC_UI/gDefs.h::UI_WITH_MESH must be set the same!
-    #define WITH_PIXELS     // requires adafruitNeoPixels
-//#endif
+#define WITH_UI         // requires FluidNC_UI
+#define WITH_MESH       // FluidNC_UI/gDefs.h::UI_WITH_MESH must be set the same!
+#define WITH_PIXELS     // requires adafruitNeoPixels
 
 #include <Machine/MachineConfig.h>  // FluidNC - required
 #include <FluidDebug.h>             // FluidNC_extensions
@@ -26,14 +20,8 @@
 // TFT pina defined in TFT_eSPI/prhSettings.h
 // but noted here for completeness.
 
-
-
-#if CNC_MACHINE_NUMBER > 1
-    // LED PIN moved from 12 to 15 for CNC machine #2
-    #define G_PIN_LEDS_OUT            GPIO_NUM_15
-#else
-    #define G_PIN_LEDS_OUT            GPIO_NUM_12
-#endif
+// LED PIN moved from 12 to 15 for CNC machine #2
+#define G_PIN_LEDS_OUT            GPIO_NUM_15
 
 
 #define G_PIN_SDCARD_CS           GPIO_NUM_4
@@ -104,11 +92,11 @@
 // the Machine
 //-----------------------------------
 
-class cnc3018 : public Machine::MachineConfig
+class cnc20mm : public Machine::MachineConfig
 {
     public:
 
-        cnc3018();
+        cnc20mm();
 
     protected:
 
@@ -117,7 +105,7 @@ class cnc3018 : public Machine::MachineConfig
 
         void  initSettings();
 
-};  // class cnc3018
+};  // class cnc20mm
 
 
 
@@ -125,8 +113,8 @@ class cnc3018 : public Machine::MachineConfig
 // externs
 //-----------------------------------
 
-extern cnc3018 the_machine;
-    // in cnc3018.cpp - the main "machine"
+extern cnc20mm the_machine;
+    // in cnc20mm.cpp - the main "machine"
 
 extern void bumpPixel();	// for LED startup sequence
-    // in cnc3018.ino
+    // in cnc20mm.ino

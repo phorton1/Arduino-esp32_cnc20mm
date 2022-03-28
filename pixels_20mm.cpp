@@ -1,10 +1,10 @@
 
-#include "cnc3018.h"
+#include "cnc20mm.h"
 
 
 #ifdef WITH_PIXELS
 
-	#include "my_pixels.h"
+	#include "pixels_20mm.h"
 	#include <gStatus.h>				// FluidNC_extensions
 	#include <gActions.h>				// FluidNC_extensions
 	#include <Machine/MachineConfig.h>	// FluidNC

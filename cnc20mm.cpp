@@ -1,13 +1,13 @@
-// cnc3018.cpp
+// cnc20mm.cpp
 
-#include "cnc3018.h"
-#include "my_pixels.h"
+#include "cnc20mm.h"
+#include "pixels_20mm.h"
 #include <YamlOverrides.h>	// FluidNC_extensions
 	// can be commented out to disable extension
 
 #define DEBUG_YAML 	0
 
-cnc3018 the_machine;
+cnc20mm the_machine;
 
 
 //---------------------------
@@ -22,9 +22,9 @@ cnc3018 the_machine;
         // override weak definition in FluidNC
         // called after the Serial port Client has been created
     {
-        g_debug("cnc3018.ino display_init() started");
+        g_debug("cnc20mm.ino display_init() started");
         FluidNC_UI_init();
-        g_debug("cnc3018.ino display_init() finished");
+        g_debug("cnc20mm.ino display_init() finished");
     }
 #endif
 
@@ -128,20 +128,20 @@ void user_realtime_command(uint8_t command, Print &client)
 
 
 //-------------------------------------
-// implement the cnc3018 "machine"
+// implement the cnc20mm "machine"
 //-------------------------------------
 
-cnc3018::cnc3018()
+cnc20mm::cnc20mm()
 {
 	config = this;
 }
 
 
-void cnc3018::afterParse() // override
+void cnc20mm::afterParse() // override
 	// for debugging only at this time
 {
 	#if DEBUG_YAML
-		g_debug("---> cnc3018::afterParse() called");
+		g_debug("---> cnc20mm::afterParse() called");
 	#endif
 
 	// At this point the tree is fleshed out with items from the yaml file, but not
@@ -151,7 +151,7 @@ void cnc3018::afterParse() // override
 }
 
 
-void cnc3018::group(Configuration::HandlerBase& handler) // override
+void cnc20mm::group(Configuration::HandlerBase& handler) // override
 {
 	#if DEBUG_YAML
 		const char *htype = "UNKNOWN";
@@ -163,7 +163,7 @@ void cnc3018::group(Configuration::HandlerBase& handler) // override
 			case Configuration::HandlerType::Generator	:  htype="Generator";  break;
 			case Configuration::HandlerType::Validator	:  htype="Validator";  break;
 		}
-		g_debug("---> cnc3018::group(handler=%s) called",htype);
+		g_debug("---> cnc20mm::group(handler=%s) called",htype);
 	#endif
 
 	Machine::MachineConfig::group(handler);
