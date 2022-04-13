@@ -1,4 +1,4 @@
-# config_v3.yaml for 20mm machine
+# config_cnc20mm.yaml for 20mm machine
 # 16 tooth M3 sprocket
 
 # The switch labels are bogus
@@ -23,6 +23,13 @@
 #    S4 = 0
 #    S5 = 0
 #    S6 = 1
+#
+# 23HS8430B Wiring
+#
+#   Red:     A+
+#   Green:   A-
+#   Yellow:  B+
+#   Blue:    B-
 
 
 name: "CNC20MM"

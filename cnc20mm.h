@@ -1,4 +1,74 @@
 // cnc20mm.h
+//
+// Dunno why the CD is not working with the UI.
+//
+// BY PIN
+//              V1          V2          20mm
+//-------------------------------------------------------------
+// 13           X_STEP      X_STEP      STEP_EN
+// 12           LED_OUT     PWM2        avail_out
+// 14           X_DIR       X_DIR       avail_out
+// 27           Y_STEP      Y_STEP      avail_out
+// 26           Y_DIR       Y_DIR       I2S_BCK
+// 25           STEP_EN     STEP_EN     I2S_DATA
+// 33           Z_STEP      Z_STEP      I2S_WS (I2S_WCK)
+// 32           Z_DIR       Z_DIR       SW_CLK
+// 35           avail_in    avail_in    avail_in
+// 34           avail_in    avail_in    avail_in
+// 39           avail_in    avail_in    avail_in
+// 36           SW_DATA     SW_DATA     SW_DATA
+//
+// 15           avail_out   LED_OUT     LED_OUT
+// 2            avail_out   PWM1        SW_LATCH
+// 4            SD_CS       SD_CS       SD_CS
+// 16/RX2       SW_CLK      SW_CLK      PWM1
+// 17/TX2       SW_LATCH    SW_LATCH    PWM2
+// 5            TOUCH_CS    TOUCH_CS    TOUCH_CS
+// 18           MCLK        MCLK        MCLK
+// 19           MISO        MISO        MISO
+// 21           TFT_DC      TFT_DC      TFT_DC
+// 3/RX0        unused      unused      unused
+// 1/TX0        unused      unused      unused
+// 22           TFT_CS      TFT_CS      TFT_CS
+// 23           MOSI        MOSI        MOSI
+//
+//
+// BY CHANGES
+//
+// 13           X_STEP      X_STEP      STEP_EN
+// 12           LED_OUT     PWM2        avail_out
+// 14           X_DIR       X_DIR       avail_out
+// 27           Y_STEP      Y_STEP      avail_out
+// 26           Y_DIR       Y_DIR       I2S_BCK
+// 25           STEP_EN     STEP_EN     I2S_DATA
+// 33           Z_STEP      Z_STEP      I2S_WS (I2S_WCK)
+// 32           Z_DIR       Z_DIR       SW_CLK
+//
+// 15           avail_out   LED_OUT     LED_OUT
+// 2            avail_out   PWM1        SW_LATCH
+// 16/RX2       SW_CLK      SW_CLK      PWM1
+// 17/TX2       SW_LATCH    SW_LATCH    PWM2
+//
+//
+// NO CHANGES
+//
+// 35           avail_in    avail_in    avail_in
+// 34           avail_in    avail_in    avail_in
+// 39           avail_in    avail_in    avail_in
+// 36           SW_DATA     SW_DATA     SW_DATA
+//
+// 4            SD_CS       SD_CS       SD_CS
+// 5            TOUCH_CS    TOUCH_CS    TOUCH_CS
+// 18           MCLK        MCLK        MCLK
+// 19           MISO        MISO        MISO
+// 21           TFT_DC      TFT_DC      TFT_DC
+// 3/RX0        unused      unused      unused
+// 1/TX0        unused      unused      unused
+// 22           TFT_CS      TFT_CS      TFT_CS
+// 23           MOSI        MOSI        MOSI
+
+
+
 
 #pragma once
 
