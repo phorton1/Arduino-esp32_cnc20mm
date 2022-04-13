@@ -1,0 +1,53 @@
+(export (version D)
+  (design
+    (source C:\src\Arduino\esp32_cnc20mm\docs\kicad\spindle_connector\spindle_connector.sch)
+    (date "4/11/2022 4:13:43 PM")
+    (tool "Eeschema (5.1.6)-1")
+    (sheet (number 1) (name /) (tstamps /)
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source spindle_connector.sch)
+        (comment (number 1) (value ""))
+        (comment (number 2) (value ""))
+        (comment (number 3) (value ""))
+        (comment (number 4) (value "")))))
+  (components
+    (comp (ref J1)
+      (value Conn_01x02)
+      (footprint cnc3018-PCB:mySkip1)
+      (datasheet ~)
+      (libsource (lib Connector_Generic) (part Conn_01x02) (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 62549B44))
+    (comp (ref J2)
+      (value Conn_01x02)
+      (footprint cnc3018-PCB:mySkip1)
+      (datasheet ~)
+      (libsource (lib Connector_Generic) (part Conn_01x02) (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 62549EB7)))
+  (libparts
+    (libpart (lib Connector_Generic) (part Conn_01x02)
+      (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
+      (docs ~)
+      (footprints
+        (fp Connector*:*_1x??_*))
+      (fields
+        (field (name Reference) J)
+        (field (name Value) Conn_01x02))
+      (pins
+        (pin (num 1) (name Pin_1) (type passive))
+        (pin (num 2) (name Pin_2) (type passive)))))
+  (libraries
+    (library (logical Connector_Generic)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library/Connector_Generic.lib")))
+  (nets
+    (net (code 1) (name "Net-(J1-Pad1)")
+      (node (ref J1) (pin 1))
+      (node (ref J2) (pin 2)))
+    (net (code 2) (name "Net-(J1-Pad2)")
+      (node (ref J1) (pin 2))
+      (node (ref J2) (pin 1)))))
