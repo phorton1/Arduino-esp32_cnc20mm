@@ -1,6 +1,11 @@
 // cnc20mm.h
 //
-// Dunno why the CD is not working with the UI.
+// The SD Card was not working with the Touch screen.
+// Solved (?) Added a 220 ohm resistor on the lcd_connector
+// between the TFT_MISO and TOUCH_MISO lines (after much
+// experimentation).
+//
+// Here are some more summaries of Pins used by my CNC machines:
 //
 // BY PIN
 //              V1          V2          20mm
@@ -86,21 +91,21 @@
 //-----------------------------------
 // ESP32 Pins Used by this Program
 //-----------------------------------
-// Except motors defined in YAML
-// TFT pina defined in TFT_eSPI/prhSettings.h
-// but noted here for completeness.
 
 // LED PIN moved from 12 to 15 for CNC machine #2
 #define G_PIN_LEDS_OUT            GPIO_NUM_15
-
-
 #define G_PIN_SDCARD_CS           GPIO_NUM_4
+    // SDCARD_CS is also defined in Yaml
 
+// TFT pina defined in TFT_eSPI/prhSettings.h
+// but noted here for completeness.
+//
 // #define G_PIN_TFT_CS             GPIO_NUM_22
 // #define G_PIN_TFT_DC             GPIO_NUM_21
 // #define G_PIN_TOUCH_CS           GPIO_NUM_5
 
-// now defined in YAML               Mach1&2       Mach3
+// I2SIn is defined in YAML
+//                                    Mach1&2       Mach3
 // #define G_PIN_74HC165_CLK         GPIO_NUM_16    32
 // #define G_PIN_74HC165_LATCH       GPIO_NUM_17    2
 // #define G_PIN_74HC165_DATA        GPIO_NUM_36    36
