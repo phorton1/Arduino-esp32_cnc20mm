@@ -54,9 +54,10 @@ axes:
         acceleration_mm_per_sec2: 30
         max_travel_mm: 2000
         motor0:
-            # hard_limits: true
-            # limit_neg_pin: I2SI.3:low
-            # limit_pos_pin: I2SI.2:low
+            hard_limits: true
+            limit_all_pin: I2SI.3:low
+                # cnc3018_v2: limit_neg_pin: I2SI.3:low
+                # cnc3018_v2: limit_pos_pin: I2SI.2:low
             pulloff_mm: 5
             standard_stepper:
                 step_pin: I2SO.6
@@ -72,9 +73,9 @@ axes:
         acceleration_mm_per_sec2: 30
         max_travel_mm: 2000
         motor0:
-            # hard_limits: true
-            # limit_neg_pin: I2SI.3:low
-            # limit_pos_pin: I2SI.2:low
+            hard_limits: true
+            limit_all_pin: I2SI.2:low
+                # does not exist in cnc3018_v2
             pulloff_mm: 5
             standard_stepper:
                 step_pin: I2SO.4
@@ -90,9 +91,10 @@ axes:
         acceleration_mm_per_sec2: 30
         max_travel_mm: 2000
         motor0:
-            # hard_limits: true
-            # limit_neg_pin: I2SI.3:low
-            # limit_pos_pin: I2SI.2:low
+            hard_limits: true
+            limit_all_pin: I2SI.1:low
+            # cnc3018_v2: limit_neg_pin: I2SI.1:low
+            # cnc3018_v2: limit_pos_pin: I2SI.0:low
             pulloff_mm: 5
             standard_stepper:
                 step_pin: I2SO.2
@@ -108,9 +110,10 @@ axes:
         acceleration_mm_per_sec2: 30
         max_travel_mm: 2000
         motor0:
-            # hard_limits: true
-            # limit_neg_pin: I2SI.3:low
-            # limit_pos_pin: I2SI.2:low
+            hard_limits: true
+            limit_all_pin: I2SI.0:low
+            # cnc3018_v2: limit_neg_pin: I2SI.7:low
+            # cnc3018_v2: limit_pos_pin: I2SI.6:low
             pulloff_mm: 5
             standard_stepper:
                 step_pin: I2SO.0
@@ -155,7 +158,8 @@ i2si:
     use_shift_in: true
   
 probe:
-    pin: I2SI.5:low
+    pin: I2SI.7:low
+    # cnc3018_v2: pin: I2SI.5:low
     check_mode_start: true
     
 start:

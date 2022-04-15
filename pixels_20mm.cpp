@@ -16,8 +16,16 @@
 
 	void bumpPixel()	// for startup sequence
 	{
-		static int pixel_num = 0;
-		pixels.setPixelColor(pixel_num++,MY_LED_MAGENTA);
+		#ifdef PIXELS_REVERSED
+			static int pixel_num = NUM_PIXELS;
+			pixel_num--;
+			if (pixel_num<0) pixel_num = 0;
+			pixels.setPixelColor(pixel_num,MY_LED_MAGENTA);
+		#else
+			static int pixel_num = 0;
+			pixels.setPixelColor(pixel_num++,MY_LED_MAGENTA);
+		#endif
+
 		pixels.show();
 	}
 
@@ -47,10 +55,10 @@
 			g_debug("pixelTask running on core %d at priority %d",xPortGetCoreID(),uxTaskPriorityGet(NULL));
 		#endif
 
-		#ifdef WITH_PIXELS
-			pixels.setPixelColor(0,MY_LED_BLUE);
-			pixels.show();
-		#endif
+		// #ifdef WITH_PIXELS
+		// 	pixels.setPixelColor(0,MY_LED_BLUE);
+		// 	pixels.show();
+		// #endif
 
 		// bypass yaml and set axes that have limit switches explicitly
 		// need at least one set for the FluidNC limit check task to run
@@ -93,22 +101,25 @@
 				last_zero_val = Machine::Axes::negLimitMask;
 				last_lim_val  = Machine::Axes::posLimitMask;
 
-					show_leds = true;
-					pixels.setPixelColor(PIXEL_X_STATE,
-						(last_zero_val & 1) && (last_lim_val & 1) ? MY_LED_YELLOW :
-						(last_zero_val & 1) ? MY_LED_MAGENTA :
-						(last_lim_val & 1)  ? MY_LED_RED :
-						MY_LED_BLACK);
-					pixels.setPixelColor(PIXEL_Y_STATE,
-						(last_zero_val & 2) && (last_lim_val & 2) ? MY_LED_YELLOW :
-						(last_zero_val & 2) ? MY_LED_MAGENTA :
-						(last_lim_val & 2)  ? MY_LED_RED :
-						MY_LED_BLACK);
-					pixels.setPixelColor(PIXEL_Z_STATE,
-						(last_zero_val & 4) && (last_lim_val & 1) ? MY_LED_YELLOW :
-						(last_zero_val & 4) ? MY_LED_MAGENTA :
-						(last_lim_val & 4)  ? MY_LED_RED :
-						MY_LED_BLACK);
+				// g_debug("limit(0x%02x)  zero(0x%02x) last(0x%02x)",Machine::Axes::limitMask,last_zero_val,last_lim_val);
+
+				show_leds = true;
+				pixels.setPixelColor(PIXEL_X_STATE,
+					(last_zero_val & 1) ? MY_LED_MAGENTA :
+					(last_lim_val & 1)  ? MY_LED_RED :
+					MY_LED_BLACK);
+				pixels.setPixelColor(PIXEL_Y_STATE,
+					(last_zero_val & 2) ? MY_LED_MAGENTA :
+					(last_lim_val & 2)  ? MY_LED_RED :
+					MY_LED_BLACK);
+				pixels.setPixelColor(PIXEL_Z_STATE,
+					(last_zero_val & 4) ? MY_LED_MAGENTA :
+					(last_lim_val & 4)  ? MY_LED_RED :
+					MY_LED_BLACK);
+				pixels.setPixelColor(PIXEL_A_STATE,
+					(last_zero_val & 8) ? MY_LED_MAGENTA :
+					(last_lim_val & 8) ? MY_LED_RED :
+					MY_LED_BLACK);
 			}
 
 			// Probe pixel
@@ -127,7 +138,7 @@
 
 			static bool led_on = false;
 			static uint32_t led_flash = 0;
-			static JobState last_job_state = JOB_IDLE;
+			static JobState last_job_state = JOB_NONE;
 			JobState job_state = g_status.getJobState();
 
 			if (last_job_state != job_state)
