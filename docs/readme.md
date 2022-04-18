@@ -21,7 +21,7 @@ masses ... elephants are much more difficult to construct than mice).
 ## Basic setup
 
 The basic setup revolves around the Y and Z axes.    Here is a idea of how a 3x6 machine would look.
-To cut 3x6 feet requires a machine that is actuall 4x7 feet, about as big as I can fit in the apartment.
+To cut 3x6 feet requires a machine that is actually 4x7 feet in size, about as big as I can fit in the apartment.
 
 ![machine3x6 v2.jpg](images/machine3x6v2.jpg)
 
@@ -33,6 +33,8 @@ Here is the CAD drawing of the YZ axis:
 And here is a drawing of one of the X axis units:
 
 ![X_AXIS v28.jpg](images/X_AXISv28.jpg)
+
+The blue parts are 3D printed.  The rest is milled wood and/or store-bought metal parts.
 
 
 ## 3D printing and wood cutting
