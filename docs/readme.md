@@ -1,14 +1,15 @@
 # Rudimentary initial page for the cnc20mm machine
 
 The cnc20mm machine is based on stainless steel 20mm tubes and 3D printed linear bearings that
-small inexpensive ball bearings.
+utilize small inexpensive ball bearings.
 
 It uses these items because it is prohibitively expensive to ship the "real" parts that one would
 use to create such a machine to Bocas Del Toro, Panama.
 
 It is intended to scale up to a machine that can cut (and laser) 4x8 sheets of plywood.
 
-The initial incarnation will likely be 3x6 feet due to space limitations in my work area.
+The initial incarnation will likely cut 3x6 feet due to space limitations in my work area.
+That machine will actually be 4'6" by 7' in size!
 
 It uses 15mm belt drives and Nema23 motors.  These motors are larger than my previous machines
 and so it requires larger higher power controller boards.   It's kind of like boats ... doubling
