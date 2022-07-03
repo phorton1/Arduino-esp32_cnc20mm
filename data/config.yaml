@@ -1,36 +1,114 @@
 # config_cnc20mm.yaml for 20mm machine
-# 16 tooth M3 sprocket
 
-# The switch labels are bogus
-# This is valid
-
-#    S3  S4    steps/rev    steps per mm           
-#     0   0     1600        33.33       33.3333
-#     1   0     3200        33.33 * 2   66.6666
-#     0   1      400        33.33 / 4   8.333333
-#     1   1      200        33.33 / 8   4.166666
+# STEPPER MOTOR WIRING
 #
-# Using 66.66 (s3=1, s4=0), and 16us pulses I found
-# that S1=1,S2=1 for "decay" is generally quietest, and 
-# I use (S5=0, S6=1) for "50% torque and am starting
-# with the defaults of SW1=1, SW2=0, and SW3=0 for
-# a current limit of 1.5A, so my defaults for the
-# X,A, and Y axis are
+#     In general the pins on plugs into the box, facing the left side, are Gnd, A-, A+, B-, B+.
+#     The plugs are consistently wired to use Gnd, Green, Red, Black, and White (from left to right)
 #
-#    S1 = 1
-#    S2 = 1
-#    S3 = 1
-#    S4 = 0
-#    S5 = 0
-#    S6 = 1
+# GENERAL EMPIRICALLY DERIVED IS2OUT SETTINGS
 #
-# 23HS8430B Wiring
+#    pulse_us: 16
+#    dir_delay_us: 16
+#    disable_delay_us: 16
 #
-#   Red:     A+
-#   Green:   A-
-#   Yellow:  B+
-#   Blue:    B-
-
+# CONTROLLERS / GENERAL
+#
+#     (A) Current Switches SW1,SW2, and SW3
+#
+#           SW1   SW2   SW3     Amps
+#            0     0     0      NA
+#            0     1     0      0.5
+#            0     0     1      1.0         <-- initial 23HE22-2804S small Z motor
+#            1     0     0      1.5         <-- initial 23HSB430B big X,Y,A motors
+#            0     1     1      NA?  1.5?
+#            1     1     0      2.0
+#            1     0     1      2.5
+#            1     1     1      3.0
+#
+#     (B) Micro-stepping
+#         The switch labels are bogus
+#         This is somewhat more valid, determined empirically
+#
+#         S3  S4    steps/rev
+#          0   0     1600                   <-- used for 23HE22-2804S small Z motor
+#          1   0     3200                   <-- used for 23HSB430B big X,Y,A motors
+#          0   1      400
+#          1   1      200
+#
+#     (C) Decay Mode - never quite sure about this.  From board:
+#
+#         S1  S2
+#          0   0      0%
+#          1   0     25%                    <-- used for 23HE22-2804S small Z motor
+#          0   1     50%
+#          1   1    100%                    <-- best for 23HSB430B big motors
+#
+#     (D) "Torgue" - same fuzziness
+#
+#         S5  S6
+#          1   1     20%
+#          0   1     50%                    <-- best for 23HSB430B big motors, also used for 23HE22-2804S small Z motor
+#          1   0     75%
+#          0   0    100%
+#
+#
+# 23HSB430B big X,Y,A motors
+#
+#     DONT UNDERSTAND!!!  The X and Y axes are only moving 45mm per revolution
+#        even though there are 16 teeth at 3mm per tooth.
+#
+#     USED TO BE:
+#           1 revolution = 48mm
+#           1 mm = 3200/48 == 66.667 steps_per_mm
+#
+#     CHANGING TO:
+#           1 revolution = 45mm
+#           1mm = 3200/45 == 71.111111 steps_per_mm
+#
+#     X IS STILL OFF BY +1mm over 300mm, 299/300 * 71.1111 = 70.874
+#         but Y is OK ?!?!?
+#
+#     Using 16us pulses I found that S1=1,S2=1 for "decay" is generally quietest,
+#     and I use (S5=0, S6=1) for "50% torque and am starting with the defaults of
+#     SW1=1, SW2=0, and SW3=0 for, a current limit of 1.5A, so my settings for the
+#     X,Y, and A axis are
+#
+#          S1 = 1       SW1 = 1
+#          S2 = 1       SW2 = 0
+#          S3 = 1       SW3 = 0
+#          S4 = 0
+#          S5 = 0
+#          S6 = 1
+#
+#     The wiring is as follows
+#
+#       Green:   A-    --> cable green
+#       Red:     A+    --> cable red
+#       Blue:    B-    --> cable black
+#       Yellow:  B+    --> cable white
+#
+#
+# Z Axis using smaller NMEA23 motor (23HE22-2804S) Motors
+#
+#      The documented wires and my current cable wiring are as follows:
+#
+#         Blue   B-    --> cable green
+#         Red    B+    --> cable red
+#         Black  A+    --> cable black
+#         Green  A-    --> cable white
+#
+#     Using switch settings, limited to 1A, decay=25%, torque=50%,
+#     1600 steps per revolution
+#
+#          S1 = 1       SW1 = 0
+#          S2 = 0       SW2 = 0
+#          S3 = 0       SW3 = 1
+#          S4 = 0
+#          S5 = 1
+#          S6 = 0
+#
+#    1 revolution = 4 millimeters
+#    So it is 400 steps_per_mm
 
 name: "CNC20MM"
 board: "esp32_cnc20mm Board"
@@ -47,122 +125,116 @@ stepping:
 
 axes:
     shared_stepper_disable_pin: gpio.13:low
-        
+
     x:
-        steps_per_mm: 66.666
+        steps_per_mm: 70.874
         max_rate_mm_per_min:8000
         acceleration_mm_per_sec2: 30
-        max_travel_mm: 2000
-        motor0:
-            hard_limits: true
-            limit_all_pin: I2SI.3:low
-                # cnc3018_v2: limit_neg_pin: I2SI.3:low
-                # cnc3018_v2: limit_pos_pin: I2SI.2:low
-            pulloff_mm: 5
-            standard_stepper:
-                step_pin: I2SO.6
-                direction_pin: I2SO.7
-        homing:
-            cycle: 2
-            seek_mm_per_min: 500
-            feed_mm_per_min: 80
-            positive_direction: false
-    a:
-        steps_per_mm: 66.666
-        max_rate_mm_per_min:8000
-        acceleration_mm_per_sec2: 30
-        max_travel_mm: 2000
-        motor0:
-            hard_limits: true
-            limit_all_pin: I2SI.2:low
-                # does not exist in cnc3018_v2
-            pulloff_mm: 5
-            standard_stepper:
-                step_pin: I2SO.4
-                direction_pin: I2SO.5
-        homing:
-            cycle: 2
-            seek_mm_per_min: 500
-            feed_mm_per_min: 80
-            positive_direction: false
-    y:
-        steps_per_mm: 66.666
-        max_rate_mm_per_min:8000
-        acceleration_mm_per_sec2: 30
-        max_travel_mm: 2000
-        motor0:
-            hard_limits: true
-            limit_all_pin: I2SI.1:low
-            # cnc3018_v2: limit_neg_pin: I2SI.1:low
-            # cnc3018_v2: limit_pos_pin: I2SI.0:low
-            pulloff_mm: 5
-            standard_stepper:
-                step_pin: I2SO.2
-                direction_pin: I2SO.3
-        homing:
-            cycle: 2
-            seek_mm_per_min: 500
-            feed_mm_per_min: 80
-            positive_direction: false
-    z:
-        steps_per_mm: 66.666
-        max_rate_mm_per_min:8000
-        acceleration_mm_per_sec2: 30
-        max_travel_mm: 2000
+        max_travel_mm: 1320
         motor0:
             hard_limits: true
             limit_all_pin: I2SI.0:low
-            # cnc3018_v2: limit_neg_pin: I2SI.7:low
-            # cnc3018_v2: limit_pos_pin: I2SI.6:low
             pulloff_mm: 5
             standard_stepper:
                 step_pin: I2SO.0
                 direction_pin: I2SO.1
         homing:
             cycle: 2
+            seek_mm_per_min: 4000
+            feed_mm_per_min: 500
+            positive_direction: false
+
+    y:
+        steps_per_mm: 71.111
+        max_rate_mm_per_min:8000
+        acceleration_mm_per_sec2: 30
+        max_travel_mm: 1320
+        motor0:
+            hard_limits: true
+            limit_all_pin: I2SI.1:low
+            pulloff_mm: 5
+            standard_stepper:
+                step_pin: I2SO.2
+                direction_pin: I2SO.3:low
+        homing:
+            cycle: 3
+            seek_mm_per_min: 4000
+            feed_mm_per_min: 500
+            positive_direction: false
+    # a:
+    #     steps_per_mm: 66.666
+    #     max_rate_mm_per_min:8000
+    #     acceleration_mm_per_sec2: 30
+    #     max_travel_mm: 2000
+        motor1:
+            hard_limits: true
+            limit_all_pin: I2SI.2:low
+            pulloff_mm: 6
+            standard_stepper:
+                step_pin: I2SO.4
+                direction_pin: I2SO.5
+    #    homing:
+    #        cycle: 2
+    #        seek_mm_per_min: 500
+    #        feed_mm_per_min: 80
+    #        positive_direction: false
+    z:
+        steps_per_mm: 400
+        max_rate_mm_per_min:8000
+        acceleration_mm_per_sec2: 30
+        max_travel_mm: 70
+        motor0:
+            hard_limits: true
+            limit_all_pin: I2SI.3:low
+            # cnc3018_v2: limit_neg_pin: I2SI.7:low
+            # cnc3018_v2: limit_pos_pin: I2SI.6:low
+            pulloff_mm: 5
+            standard_stepper:
+                step_pin: I2SO.6
+                direction_pin: I2SO.7
+        homing:
+            cycle: 1
             seek_mm_per_min: 500
             feed_mm_per_min: 80
 
 
 
- 
+
 # PWM:
 #     output_pin: gpio.2
 #     pwm_hz: 2000
 #     speed_map: 0=0% 1=5% 100=100%
-            
+
 spi:
     # one has to tell FluidNC the default ESP32 SPI pins!
     miso_pin: gpio.19
     mosi_pin: gpio.23
     sck_pin: gpio.18
-    
+
 sdcard:
     # and then one can specify the specific cs used for the SDCard
     cs_pin: gpio.4
     card_detect_pin: NO_PIN
-    
+
 i2so:
     # bck_pin: gpio.22
     # data_pin: gpio.21
     # ws_pin: gpio.17
-    
+
     bck_pin:   gpio.26
     ws_pin:    gpio.25
     data_pin:  gpio.33
-    
+
 i2si:
     bck_pin:   gpio.32
     ws_pin:    gpio.2
     data_pin:  gpio.36
     use_shift_in: true
-  
+
 probe:
     pin: I2SI.7:low
     # cnc3018_v2: pin: I2SI.5:low
     check_mode_start: true
-    
+
 start:
   must_home: false
-  
-
