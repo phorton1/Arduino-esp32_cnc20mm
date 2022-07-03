@@ -21,15 +21,15 @@
     #ifdef PIXELS_REVERSED
         #define PIXEL_SYS_STATE   5
         #define PIXEL_X_STATE     4
-        #define PIXEL_A_STATE     3
-        #define PIXEL_Y_STATE     2
+        #define PIXEL_Y_STATE     3
+        #define PIXEL_A_STATE     2
         #define PIXEL_Z_STATE     1
         #define PIXEL_PROBE_STATE 0
     #else
         #define PIXEL_SYS_STATE   0
         #define PIXEL_X_STATE     1
-        #define PIXEL_A_STATE     2
-        #define PIXEL_Y_STATE     3
+        #define PIXEL_Y_STATE     2
+        #define PIXEL_A_STATE     3
         #define PIXEL_Z_STATE     4
         #define PIXEL_PROBE_STATE 5
     #endif

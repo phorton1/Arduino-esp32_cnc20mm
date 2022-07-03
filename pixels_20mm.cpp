@@ -66,7 +66,7 @@
 		// or make limits_get_state() weakly bound and override it here instead
 		// of a task. For now dueling tasks works ok.
 
-		gActions::setLimitMask(0x03);
+		gActions::setLimitMask(0x20007);
 		gActions::g_limits_init();
 
 		while (true)
@@ -93,32 +93,39 @@
 			// XYZ pixels
 
 			bool show_leds = false;
-			static uint8_t last_zero_val = 0;
-			static uint8_t last_lim_val  = 0;
+			static uint32_t last_zero_val = 0;
+			static uint32_t last_lim_val  = 0;
 			if (last_zero_val != Machine::Axes::negLimitMask ||
 				last_lim_val  != Machine::Axes::posLimitMask)
 			{
+				#if 0
+					g_debug("mask(0x%08x)  zero(0x%08x) lim(0x%08x)  last_zero(0x%08x)  last_lim(0x%08x)",
+						Machine::Axes::limitMask,
+						Machine::Axes::negLimitMask,
+						Machine::Axes::posLimitMask,
+						last_zero_val,
+						last_lim_val);
+				#endif
+
 				last_zero_val = Machine::Axes::negLimitMask;
 				last_lim_val  = Machine::Axes::posLimitMask;
 
-				// g_debug("limit(0x%02x)  zero(0x%02x) last(0x%02x)",Machine::Axes::limitMask,last_zero_val,last_lim_val);
-
 				show_leds = true;
 				pixels.setPixelColor(PIXEL_X_STATE,
-					(last_zero_val & 1) ? MY_LED_MAGENTA :
-					(last_lim_val & 1)  ? MY_LED_RED :
+					(last_zero_val & (1 << X_AXIS)) ? MY_LED_MAGENTA :
+					(last_lim_val & (1 << X_AXIS))  ? MY_LED_RED :
 					MY_LED_BLACK);
 				pixels.setPixelColor(PIXEL_Y_STATE,
-					(last_zero_val & 2) ? MY_LED_MAGENTA :
-					(last_lim_val & 2)  ? MY_LED_RED :
-					MY_LED_BLACK);
-				pixels.setPixelColor(PIXEL_Z_STATE,
-					(last_zero_val & 4) ? MY_LED_MAGENTA :
-					(last_lim_val & 4)  ? MY_LED_RED :
+					(last_zero_val & (1 << Y_AXIS)) ? MY_LED_MAGENTA :
+					(last_lim_val & (1 << Y_AXIS))  ? MY_LED_RED :
 					MY_LED_BLACK);
 				pixels.setPixelColor(PIXEL_A_STATE,
-					(last_zero_val & 8) ? MY_LED_MAGENTA :
-					(last_lim_val & 8) ? MY_LED_RED :
+					(last_zero_val & (1 << (16 + Y_AXIS))) ? MY_LED_MAGENTA :
+					(last_lim_val & (1 << (16 + Y_AXIS))) ? MY_LED_RED :
+					MY_LED_BLACK);
+				pixels.setPixelColor(PIXEL_Z_STATE,
+					(last_zero_val & (1 << Z_AXIS)) ? MY_LED_MAGENTA :
+					(last_lim_val & (1 << Z_AXIS))  ? MY_LED_RED :
 					MY_LED_BLACK);
 			}
 
