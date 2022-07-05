@@ -215,7 +215,7 @@ i2si:
     use_shift_in: true
 
 probe:
-    pin: I2SI.7:low
+    pin: I2SI.4:low
     check_mode_start: true
 
 start:
