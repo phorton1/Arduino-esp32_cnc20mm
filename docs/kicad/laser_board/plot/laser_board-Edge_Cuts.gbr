@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,(5.1.6)-1*%
+%TF.CreationDate,2022-07-04T15:30:00-05:00*%
+%TF.ProjectId,laser_board,6c617365-725f-4626-9f61-72642e6b6963,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW (5.1.6)-1) date 2022-07-04 15:30:00*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.050000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X24130000Y41910000D02*
+X0Y41910000D01*
+X24130000Y0D02*
+X24130000Y41910000D01*
+X0Y0D02*
+X24130000Y0D01*
+X0Y41910000D02*
+X0Y0D01*
+M02*
