@@ -18,8 +18,8 @@
 #           SW1   SW2   SW3     Amps
 #            0     0     0      NA
 #            0     1     0      0.5
-#            0     0     1      1.0         <-- initial 23HE22-2804S small Z motor
-#            1     0     0      1.5         <-- initial 23HSB430B big X,Y,A motors
+#            0     0     1      1.0
+#            1     0     0      1.5         <-- used on all motors
 #            0     1     1      NA?  1.5?
 #            1     1     0      2.0
 #            1     0     1      2.5
@@ -97,12 +97,12 @@
 #         Black  A+    --> cable black
 #         Green  A-    --> cable white
 #
-#     Using switch settings, limited to 1A, decay=25%, torque=50%,
+#     Using switch settings, limited to 1.5A, decay=25%, torque=50%,
 #     1600 steps per revolution
 #
-#          S1 = 1       SW1 = 0
+#          S1 = 1       SW1 = 1
 #          S2 = 0       SW2 = 0
-#          S3 = 0       SW3 = 1
+#          S3 = 0       SW3 = 0
 #          S4 = 0
 #          S5 = 1
 #          S6 = 0
@@ -116,7 +116,6 @@ board: "esp32_cnc20mm Board"
 
 stepping:
     engine:  I2S_STREAM
-        # RMT
     idle_ms: 250
         # !! 255 disables the "disable/enable" pin(s)
     pulse_us: 16
@@ -161,11 +160,6 @@ axes:
             seek_mm_per_min: 4000
             feed_mm_per_min: 500
             positive_direction: false
-    # a:
-    #     steps_per_mm: 66.666
-    #     max_rate_mm_per_min:8000
-    #     acceleration_mm_per_sec2: 30
-    #     max_travel_mm: 2000
         motor1:
             hard_limits: true
             limit_all_pin: I2SI.2:low
@@ -173,11 +167,6 @@ axes:
             standard_stepper:
                 step_pin: I2SO.4
                 direction_pin: I2SO.5
-    #    homing:
-    #        cycle: 2
-    #        seek_mm_per_min: 500
-    #        feed_mm_per_min: 80
-    #        positive_direction: false
     z:
         steps_per_mm: 400
         max_rate_mm_per_min:8000
@@ -186,8 +175,6 @@ axes:
         motor0:
             hard_limits: true
             limit_all_pin: I2SI.3:low
-            # cnc3018_v2: limit_neg_pin: I2SI.7:low
-            # cnc3018_v2: limit_pos_pin: I2SI.6:low
             pulloff_mm: 5
             standard_stepper:
                 step_pin: I2SO.6
@@ -197,13 +184,13 @@ axes:
             seek_mm_per_min: 500
             feed_mm_per_min: 80
 
-
-
-
 # PWM:
-#     output_pin: gpio.2
-#     pwm_hz: 2000
-#     speed_map: 0=0% 1=5% 100=100%
+    # Leaving it setup for "Laser" is usable with spindle too
+    # M3 = spindle ON     M4 = laser on
+Laser:
+    output_pin: gpio.16
+    pwm_hz: 1000
+    speed_map: 0=0% 1000=100%
 
 spi:
     # one has to tell FluidNC the default ESP32 SPI pins!
@@ -217,10 +204,6 @@ sdcard:
     card_detect_pin: NO_PIN
 
 i2so:
-    # bck_pin: gpio.22
-    # data_pin: gpio.21
-    # ws_pin: gpio.17
-
     bck_pin:   gpio.26
     ws_pin:    gpio.25
     data_pin:  gpio.33
@@ -233,8 +216,7 @@ i2si:
 
 probe:
     pin: I2SI.7:low
-    # cnc3018_v2: pin: I2SI.5:low
     check_mode_start: true
 
 start:
-  must_home: false
+    must_home: false
