@@ -29,6 +29,28 @@ cnc20mm the_machine;
 #endif
 
 
+#if 0
+	// Turn this on to enable the very few calls, and specifically the one
+	// per input line in Serial.cpp "GCODE:", to output directly to the
+	// UART bypassing all FluidNC and Grbl protocols, regardless if
+	// WITH_UI is set or not.
+
+	#include <Uart.h>
+
+	void /*WEAK_LINK*/ display(const char* tag, String s)
+	{
+		Uart0.print("\r\n");
+		Uart0.flush();
+		Uart0.print("display: ");
+		Uart0.print(tag);
+		Uart0.print(" - ");
+		Uart0.print(s.c_str());
+		Uart0.print("\r\n");
+		Uart0.flush();
+	}
+#endif
+
+
 //---------------------------
 // implement Mesh extension
 //---------------------------
