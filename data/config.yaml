@@ -189,7 +189,7 @@ axes:
     # M3 = spindle ON     M4 = laser on
 Laser:
     output_pin: gpio.16
-    pwm_hz: 1000
+    pwm_hz: 5000
     speed_map: 0=0% 1000=100%
 
 spi:
