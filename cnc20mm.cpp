@@ -39,13 +39,13 @@ cnc20mm the_machine;
 
 	void /*WEAK_LINK*/ display(const char* tag, String s)
 	{
-		Uart0.print("\r\n");
+		// Uart0.print("\r\n");
 		Uart0.flush();
-		Uart0.print("display: ");
+		Uart0.print("[MSG:DISP ");
 		Uart0.print(tag);
 		Uart0.print(" - ");
 		Uart0.print(s.c_str());
-		Uart0.print("\r\n");
+		Uart0.print("]\r\n");
 		Uart0.flush();
 	}
 #endif
