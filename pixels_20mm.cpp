@@ -11,7 +11,7 @@
 
 	Adafruit_NeoPixel pixels(NUM_PIXELS,G_PIN_LEDS_OUT);
 
-	#define DEBUG_PIXELS  1
+	#define DEBUG_PIXELS  0
 
 
 	void bumpPixel()	// for startup sequence
