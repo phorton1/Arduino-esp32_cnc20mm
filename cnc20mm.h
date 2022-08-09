@@ -92,8 +92,8 @@
 // ESP32 Pins Used by this Program
 //-----------------------------------
 
-// LED PIN moved from 12 to 15 for CNC machine #2
-#define G_PIN_LEDS_OUT            GPIO_NUM_15
+// LED PIN moved from 12 to 15 for CNC machine #2 (and v3) and back to 12 for cnc20mmV4
+#define G_PIN_LEDS_OUT            GPIO_NUM_12
 #define G_PIN_SDCARD_CS           GPIO_NUM_4
     // SDCARD_CS is also defined in Yaml
 
