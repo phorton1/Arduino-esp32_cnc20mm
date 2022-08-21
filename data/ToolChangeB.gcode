@@ -1,5 +1,10 @@
 ; ToolChangeB
+
+; [ESP700]/ToolChangeB.gcode
+; $localFS/Run=/ToolChangeB.gcode
+
 ; need g0 before G53
+
 
 g0 G53 X30 Y30				; move over the probe
 G38.2 F100 Z-50				; probe new tool
