@@ -149,8 +149,8 @@ axes:
                 direction_pin: gpio.33
         homing:
             cycle: 2
-            seek_mm_per_min: 4000
-            feed_mm_per_min: 500
+            seek_mm_per_min: 3000
+            feed_mm_per_min: 200
             positive_direction: false
 
     y:
@@ -170,13 +170,13 @@ axes:
                 # also note the amps switch was off and motor stopped!
         homing:
             cycle: 3
-            seek_mm_per_min: 4000
-            feed_mm_per_min: 500
+            seek_mm_per_min: 3000
+            feed_mm_per_min: 200
             positive_direction: false
         motor1:
             hard_limits: true
             limit_all_pin: gpio.34:low
-            pulloff_mm: 6
+            pulloff_mm: 5
             standard_stepper:
                 step_pin: gpio.27
                 direction_pin: gpio.14
@@ -195,7 +195,7 @@ axes:
         homing:
             cycle: 1
             seek_mm_per_min: 500
-            feed_mm_per_min: 80
+            feed_mm_per_min: 40
 
 # PWM:
     # Leaving it setup for "Laser" is usable with spindle too
