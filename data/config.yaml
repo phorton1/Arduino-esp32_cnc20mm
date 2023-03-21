@@ -110,20 +110,30 @@
 #    1 revolution = 4 millimeters
 #    So it is 400 steps_per_mm
 
-name: "CNC20MM"
-board: "esp32_cnc20mm Board"
+name: "CNC20MMV4"
+board: "esp32_cnc20v4 Board"
 
 
 stepping:
-    engine:  I2S_STREAM
+    engine: RMT
     idle_ms: 250
         # !! 255 disables the "disable/enable" pin(s)
-    pulse_us: 16
-    dir_delay_us: 16
-    disable_delay_us: 16
+    pulse_us: 8
+    dir_delay_us: 4
+    disable_delay_us: 4
+
+    #  engine:  I2S_STREAM
+    #  idle_ms: 250
+    #      # !! 255 disables the "disable/enable" pin(s)
+    #  pulse_us: 16
+    #  dir_delay_us: 16
+    #  disable_delay_us: 16
+    
+    
+    
 
 axes:
-    shared_stepper_disable_pin: gpio.13:low
+    shared_stepper_disable_pin: gpio.2:low
 
     x:
         steps_per_mm: 70.874
@@ -132,15 +142,15 @@ axes:
         max_travel_mm: 1320
         motor0:
             hard_limits: true
-            limit_all_pin: I2SI.0:low
+            limit_all_pin: gpio.16:low
             pulloff_mm: 5
             standard_stepper:
-                step_pin: I2SO.0
-                direction_pin: I2SO.1
+                step_pin: gpio.32
+                direction_pin: gpio.33
         homing:
             cycle: 2
-            seek_mm_per_min: 4000
-            feed_mm_per_min: 500
+            seek_mm_per_min: 3000
+            feed_mm_per_min: 200
             positive_direction: false
 
     y:
@@ -150,45 +160,48 @@ axes:
         max_travel_mm: 1320
         motor0:
             hard_limits: true
-            limit_all_pin: I2SI.1:low
+            limit_all_pin: gpio.35:low
             pulloff_mm: 5
             standard_stepper:
-                step_pin: I2SO.2
-                direction_pin: I2SO.3:low
+                step_pin: gpio.25
+                direction_pin: gpio.26:low
+                # on V4 the Y axis moved in wrong direction
+                # so I changed direction to ":low"
+                # also note the amps switch was off and motor stopped!
         homing:
             cycle: 3
-            seek_mm_per_min: 4000
-            feed_mm_per_min: 500
+            seek_mm_per_min: 3000
+            feed_mm_per_min: 200
             positive_direction: false
         motor1:
             hard_limits: true
-            limit_all_pin: I2SI.2:low
-            pulloff_mm: 6
+            limit_all_pin: gpio.34:low
+            pulloff_mm: 5
             standard_stepper:
-                step_pin: I2SO.4
-                direction_pin: I2SO.5
+                step_pin: gpio.27
+                direction_pin: gpio.14
     z:
         steps_per_mm: 400
-        max_rate_mm_per_min:8000
+        max_rate_mm_per_min:4000
         acceleration_mm_per_sec2: 30
         max_travel_mm: 70
         motor0:
             hard_limits: true
-            limit_all_pin: I2SI.3:low
+            limit_all_pin: gpio.36:low
             pulloff_mm: 5
             standard_stepper:
-                step_pin: I2SO.6
-                direction_pin: I2SO.7
+                step_pin: gpio.15
+                direction_pin: gpio.13
         homing:
             cycle: 1
             seek_mm_per_min: 500
-            feed_mm_per_min: 80
+            feed_mm_per_min: 40
 
 # PWM:
     # Leaving it setup for "Laser" is usable with spindle too
     # M3 = spindle ON     M4 = laser on
 Laser:
-    output_pin: gpio.16
+    output_pin: gpio.17
     pwm_hz: 5000
     speed_map: 0=0% 1000=100%
 
@@ -203,19 +216,19 @@ sdcard:
     cs_pin: gpio.4
     card_detect_pin: NO_PIN
 
-i2so:
-    bck_pin:   gpio.26
-    ws_pin:    gpio.25
-    data_pin:  gpio.33
-
-i2si:
-    bck_pin:   gpio.32
-    ws_pin:    gpio.2
-    data_pin:  gpio.36
-    use_shift_in: true
+# i2so:
+#     bck_pin:   gpio.26
+#     ws_pin:    gpio.25
+#     data_pin:  gpio.33
+# 
+# i2si:
+#     bck_pin:   gpio.32
+#     ws_pin:    gpio.2
+#     data_pin:  gpio.36
+#     use_shift_in: true
 
 probe:
-    pin: I2SI.4:low
+    pin: gpio.39:low
     check_mode_start: true
 
 start:
