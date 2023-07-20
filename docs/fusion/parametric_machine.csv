@@ -1,0 +1,90 @@
+,-------------------------------------------------------
+, Parameterized CNC Machine
+,-------------------------------------------------------
+, This is a design based on a few parameters that will automatically
+, generate a reasonable machine, and one that, for a specific set of
+, parameters, will produce the design for my existing machine.
+,
+, This design does NOT include the table.   The goal is to layout the
+, active elements of the design and provide working statistics.  The
+, specific design will then be imported to another design to create
+, the overall machine including the table.
+
+
+________PARAMS______________,,0
+, The parameters in this section are the most important modifiable parameters.
+, The origin of the design will be the left center of the front x-tube at the base
+, of the x_stops (the top of the 'runner')
+
+x_tube_length,			mm,		1552.1 mm,		from corrected original design
+y_tube_length,			mm,		1505.5 mm,		from original design
+
+
+________DESIGN_______________,,0
+, This section includes design decisions in this model that are more or less fixed
+
+tube_diameter,			mm,		20 mm,			idealized diameter of SS tubes; actual components are designed to specific tubes
+x_sled_margin,			mm,		10 mm,			designed space between face of left x_stop and the x-sled in its nominal zero position
+y_sled_margin,			mm,		7 mm,			designed space between face of x_sled and edge of y_sled
+y_tube_extend,			mm,		27.8 mm,		how far y tubes stick out past center of x-tubes from original design
+
+
+________FIXED_______________,,0
+, The parameters in this section are 'fixed' by the design of other components,
+
+x_tube_height,			mm,		40 mm,			from origin to center of x_tube as determined by X_SUPPORT design
+x_support_width,		mm,		30 mm,			from X_SUPPORT design
+x_stop_depth,			mm,		35 mm,			how far tubes go into x_ends as determined by X_ENDS design
+
+x_sled_width,			mm,		46 mm, 			distance between inner and outer faces, from X_SLED design
+x_sled_length,			mm,		180 mm,	 		from X_SLED design
+y_sled_length,			mm,		142 mm,			from Y_SLED design
+
+x_edge_to_ytube_x,		mm,		93 mm,			back edge of the x_sled to the center of the y_tubes from X_SLED design
+y_edge_to_spindle_y,	mm,		71 mm,			along the y axis from Y_SLED design
+y_edge_to_spindle_x,	mm,		123.50 mm,		along the x_axis from Y_SLED design
+laser_offset_x,			mm,		13.90 mm,		from center of spindle to center of lase from Y_SLED design
+
+
+_______CALCULATED_______________,,0
+, Calculated values used in this model
+
+x_tube_c2c,mm,			y_tube_length - 2 * y_tube_extend,   center-to-center CALCULATED 1449.90 same as old design
+
+num_x_supports,			,		4,																number of x-supports per side from original design
+x_tube_space,			mm,     x_tube_length - (2 * x_stop_depth) - (num_x_supports * x_support_width),	amount of space to split up
+x_support_space,		mm,		x_tube_space / (num_x_supports + 1),							face to face space between supports, CALCULATED 272.42
+x_support_spacing,		mm,		x_support_space + x_support_width,								the rect pattern spacing includes the previous one's width CALCULATED 302.24
+x_support_first, 		mm,		x_stop_depth + x_support_spacing - x_support_width,				the first one from origin includs the x_stop, but not a support CALCULATED 307.42
+
+, We need an expression for how far from the end of the y-tube the Y_SLED should be.
+, This is based on getting BACK to the the x-tube center with y_tube_extend, then
+, getting to the face of the X_SLED with it's width, and then adding the desired 7mm offset
+
+y_sled_offset,			mm,		y_tube_extend + (x_sled_width / 2) + y_sled_margin,				y-sled at nominal zero from the end of the y-tube CALCULATED 57.80
+
+
+_________________TRAVEL__________________,,0
+, Parameters merely used to show the resultant work area in a sketch
+
+y_travel,				mm,		y_tube_length - y_sled_length - 2 * y_sled_offset,					CALCULATED 1247.90 same as old design
+x_travel,				mm,		x_tube_length - x_sled_length - 2 * (x_stop_depth + x_sled_margin),	CALCULATED 1282.10 same as old design
+
+, to DRAW the work area, we just determine the spindle offset from the origin
+
+spindle_offset_x,		mm,		x_stop_depth + x_sled_margin + x_edge_to_ytube_x + y_edge_to_spindle_x
+spindle_offset_y,		mm,		(x_sled_width / 2) + y_sled_margin + y_edge_to_spindle_y
+
+
+__________________CONVERSIONS________________,,0
+, convert various values to rounded inches for display as text inches in a sketch
+, we have to first convert to dimensionless inches, then mul * 100,
+, then divide by 100
+
+x_tube_inches,			in,		( round(( x_tube_length / 25.4 mm ) * 100) / 100 ) * 1 in
+y_tube_inches,			in,		( round(( y_tube_length / 25.4 mm ) * 100) / 100 ) * 1 in
+x_c2c_inches,			in,		( round(( x_tube_c2c / 25.4 mm ) * 100) / 100 ) * 1 in
+x_travel_inches,		in,		( round(( x_travel / 25.4 mm ) * 100) / 100 ) * 1 in
+y_travel_inches,		in,		( round(( y_travel / 25.4 mm ) * 100) / 100 ) * 1 in
+first_support_in,		in,		( round(( x_support_first / 25.4 mm ) * 100) / 100 ) * 1 in
+support_spacing_in,		in,		( round(( x_support_spacing / 25.4 mm ) * 100) / 100 ) * 1 in
