@@ -1,0 +1,61 @@
+,-------------------------------------------------------------
+, Table for 4x4 Machine
+,-------------------------------------------------------------
+
+
+
+__________TABLE_BASICS_____________,,0
+
+table_width,			in,		62 in,				front to back in design, which is side to side in place
+table_length,			in,		62 in,				side to to side in design, which is front to back in place
+table_height,			in,		29 in,				floor to top "3/4" plywood fixed top on which the runners ride
+
+by1,					in,		0.75 in,			actual thickness of "1 by x" lumber
+by2,					in,		1.5 in,				actual thickness of "2 by x" lumber
+by4,					in,		3.5 in,				actual thickness of "4 by x" lumber
+by6,					in,		5.5 in,				actual width of a "1 x 6"
+by8,					in,		7.5 in,				actual width of a "1 x 6"
+
+ply_thick,				mm,		17 mm,				thickness of "3/4" plywood
+ply_medium,				mm,		11.5 mm,			thickness of "1/2" plywood
+
+num_joists,				,		3,													three joists inside the frame
+table_space,			in,		table_width - (num_joists + 2) * by2,				total open space to be divided
+joist_space,			in,		table_space / (num_joists + 1),						space between joist faces CALCULATED 13.625
+joist_spacing,			in,		joist_space + by2,									center to center joists CALCULATED 15.125
+
+,the waste board is just 'known' for a this design
+,it is 48" by the length of the table, flush up against the front runner
+
+waste_width,			in, 	48 in
+
+
+_________TABLE_LEGS________________,,0
+
+
+, the table does NOT sit on the leg supports.
+, they are purpously 1/8" below the table top,
+, and at a 45 degree angle.
+
+leg_tolerance,			in,		0.125 in,							space between leg supports and table top
+by4_length,				in,		28.25 in,							length of 4x4's to get very close to 29" to work top
+
+
+, thus far all table dimensions are nice fractions of an inch.
+, the angled table supports, however, need to fit in a precise way
+, and do not, in the design, come out to a nice fraction of inch.
+, in construction they are rounded to a 1/16th of inch.
+
+by4_hypotenuse,			in,		sqrt(by4 * by4 + by4 * by4),		length of hypotenuse of a 45 degree cut in a "2x4" CALCULATED 4.95
+
+, now we calculate the inner and outer lengths of the support 2x4
+, as the small_hypotenuse and big_hypotenuse
+
+small_triangle_base,	in,		joist_space - by4,							the "base" of the smaller right triangle 			CALCULATED 10.125
+small_hypotenuse,		in,		sqrt(small_triangle_base * small_triangle_base + small_triangle_base * small_triangle_base),	CALCULATED 14.319
+big_triangle_base,		in,		small_triangle_base + by4_hypotenuse,		the "base" of the bigger right triangle				CALCULATED 15.075
+big_hypotenuse,			in,		sqrt(big_triangle_base * big_triangle_base + big_triangle_base * big_triangle_base),			CALCULATED 21.319
+
+, and we start the two lines for the 2x4 on the 4by4 DOWN fROM THE frame_top
+
+leg_support_start,		in,	small_triangle_base + leg_tolerance,	CALCULATED 10.25
