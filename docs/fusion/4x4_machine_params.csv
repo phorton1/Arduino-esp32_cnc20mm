@@ -105,3 +105,33 @@ x_travel_inches,		in,		( round(( x_travel / 25.4 mm ) * 100) / 100 ) * 1 in
 y_travel_inches,		in,		( round(( y_travel / 25.4 mm ) * 100) / 100 ) * 1 in
 first_support_in,		in,		( round(( x_support_first / 25.4 mm ) * 100) / 100 ) * 1 in
 support_spacing_in,		in,		( round(( x_support_spacing / 25.4 mm ) * 100) / 100 ) * 1 in
+
+
+___________ACCESSORIES_______________,,0
+
+, the drag chains are positioned during their placement, and then the fixed end is grounded,
+, and the other end is moved, as best as possible, to connect to the moving part.  These
+, are the most important parameters, but slight movements of components, including moving
+, the axes to intermediate position, are made to get things to work.  At the end the
+, axes are returned to their 'zero' positions and the model is saved.
+
+, starting positions
+
+x_drag_offset,			mm,		735 mm,			distance from left edge of runner to end of fixed end of x drag chain
+x_drag_inset,			mm,		0.5 mm,			inset from front edge of runner to centered on drag_bracket
+y_drag_offset,			mm,		110 mm,			distance from front edge of drag_ply to start of fixed end of y drag chain
+y_drag_inset,			mm,		8.85 mm,		inset from edge of drag ply to wood y-drag_support on top of y axis
+
+, ending positions, trying to pre-bend chains so that they are in correct place when imported
+, note the use off offets from the WOOD.
+
+x_drag_height,			mm,		164.7 mm,		from top of runner to bottom of x drag_bracket
+x_drag_end,				mm,		86.35 mm,		from left edge of runner to end of upper (female) drag end
+
+y_drag_height,			mm,		128.077 mm,		fron top of drag_ply to bottom of y-axis drag wood piece
+y_drag_end,				mm,		161.0 mm,		from front edge of drag ply to front edge of y-axis drag wood piece
+
+
+, so, for example, the inverted x drag chain moving end ends up  164.7 mm ABOVE and (735 - 86.35 mm) TO THE LEFT OF the end of the fixed end
+, and the inverted y chain moving end ends up 128.077 mm ABOVE and (161.10 - 110 mm) TO THE "LEFT" of the fixed end
+, these params are manually entered into the DRAG25 and DRAG45 models.

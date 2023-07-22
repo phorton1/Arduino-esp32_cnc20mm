@@ -51,6 +51,9 @@ On these pages I will *describe* and *show* the following:
 
 ## Credits
 
+R38 18x37 Drag Chain Model from Darko Saric Lukendic https://grabcad.com/library/cable-chain-18x37-1
+
+
 ## License
 
 
