@@ -1,15 +1,18 @@
-# esp32_cnc20mm - Mechanical Design
+# esp32_cnc20mm - Basic Mechanical Design
 
 **[Home](readme.md)** --
 **Design** --
+**[Details](details.md)** --
 **[Electronics](electronics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 Perhaps the most difficult design decision was how large to make the machine.
@@ -208,5 +211,5 @@ and proven that I added the legs and raised the top off the floor.
 ### Drag Parts
 
 
+**Next** - Some Design [**Details**](details.md) for the machine ...
 
-**Next** - the **[Electronics](electronics.md)** and *PCB* (Printed Circuit Board) ...

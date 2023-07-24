@@ -2,15 +2,18 @@
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
+**[Details](details.md)** --
 **[Electronics](electronics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **Laser** --
-**[Details](details.md)** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 
-**Next** - [**Accessories**](details.md) for, and [**other details**](details.md) about the machine ...
+**Next** - Various [**Accessories**](acessories.md) for the machine ...

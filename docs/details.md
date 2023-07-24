@@ -1,18 +1,34 @@
-# esp32_cnc20mm - Accessories and other Details
+# esp32_cnc20mm - Design Details - Drag Chains, Connectors, etc
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
+**Details** --
 **[Electronics](electronics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**Details** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
-## Problem - Play in the SS Tubes
+
+## Wire Clamps
 
 
-**Next** - some early [**Projects**](projects.md) made using the machine ...
+## Connector Brackets
+
+
+## X Drag Chain
+
+
+## Y Drag Chain
+
+
+
+**Next** - the **[Electronics](electronics.md)** and *PCB* (Printed Circuit Board) ...
+
+

@@ -2,14 +2,17 @@
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
+**[Details](details.md)** --
 **[Electronics](electronics.md)** --
 **Box** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 This page shows the design and assembly of the Controller Box.
@@ -124,4 +127,4 @@ Modify the Four Stepper Driver Boards
 
 
 
-**Next** - Building the [**initial Y Axis**](y_axis.md) for the machine ...
+**Next** - A small box for [**Spindle**](spindle.md) Control and Power Supply ...

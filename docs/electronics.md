@@ -2,14 +2,17 @@
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
+**[Details](details.md)** --
 **Electronics** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 This page describes the electrical components that I designed

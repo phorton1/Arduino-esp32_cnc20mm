@@ -1,15 +1,18 @@
-# esp32_cnc20mm - Accessories
+# esp32_cnc20mm - Vacuum & other Accessories
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
-**[Electronics](electronics.md)** --
+**[Details](details.md)** --
+**[Electronics](electron77ics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
-**Build** --
-**[Accessories](accessories.md)** --
+**[Build](build.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
+**Accessories** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 ## Spindle Motor Power Supply and Controller
@@ -17,4 +20,4 @@
 ## Vaccuum Acessories
 
 
-**Next** - Upgrading the [**Laser**](laser.md) on the machine ...
+**Next** - Installing and Understanding the [**Software**](software.md) for the machine ...

@@ -1,16 +1,19 @@
-# esp32_cnc20mm - Actual Build
+# esp32_cnc20mm - Buillding the Machine
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
+**[Details](details.md)** --
 **[Electronics](electronics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **Build** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 
-**Next** - some **[Accessories](accessories.md)**, including the *Spindle Controller* and *Vaccuum System*
+**Next** - Adding a bigger [**Laser**](laser.md) ...

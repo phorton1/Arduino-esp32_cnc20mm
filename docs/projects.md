@@ -1,16 +1,19 @@
-# esp32_cnc20mm - some Early Projects made with it
+# esp32_cnc20mm - some Projects made with this CNC machine
 
 **[Home](readme.md)** --
 **[Design](design.md)** --
+**[Details](details.md)** --
 **[Electronics](electronics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
-**Projects** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
+**Projects**
 
 
 

@@ -2,14 +2,17 @@
 
 **Home** --
 **[Design](design.md)** --
+**[Details](details.md)** --
 **[Electronics](electronics.md)** --
 **[Box](box.md)** --
+**[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
 **[Table](table.md)** --
 **[Build](build.md)** --
-**[Accessories](accessories.md)** --
 **[Laser](laser.md)** --
-**[Details](details.md)** --
+**[Accessories](accessories.md)** --
+**[Software](software.md)** --
+**[Notes](notes.md)** --
 **[Projects](projects.md)**
 
 
@@ -35,16 +38,21 @@ and so it requires larger, higher power, external controller boards.
 
 On these pages I will *describe* and *show* the following:
 
-- the mechanical **[Design](design.md)** of the machine
+- the basic mechanical **[Design](design.md)** of the machine
+- some design **[Details](details.md)**, including Drag Chains, Connectors, etc
 - the **[Electronics](electronics.md)** *Schematic* and *PCB* (Printed Circuit Board)
-- the **[Controller Box](box.md)**
+- the main **[Controller Box](box.md)**
+- the separate **[Spindle](spindle.md)** controller box
 - the *initial build* of the **[Y-Axis](y_axis.md)**
 - constructing the **[Table](table.md)** (furniture) to support the machine
 - assembling and **[Building](build.md)** the *actual* machine
-- adding **[Accessories](accessories.md)** including the *Spindle Controller* and *Vacuum* System
 - upgrading the **[Laser](laser.md)** from 500mw to a whopping **10W diode laser**
-- other **[Details](details.md)** about the machine, other changes made to it, etc
+- adding **[Accessories](accessories.md)** including the *Spindle Controller* and *Vacuum* System
+- installed and understanding the **[FluidNC Software](software.md)** for the *ESP32*
+- implementation and historical **[Notes](notes.md)**
 - and, finally, a few early **[Wooden Projects](projects.md)** that were made with the machine
+
+
 
 
 ## Materials available in this Repository
@@ -60,4 +68,4 @@ R38 18x37 Drag Chain Model from Darko Saric Lukendic https://grabcad.com/library
 ## Also See
 
 
-**Next** - Exploring the [**Design**](design.md) of the machine ...
+**Next** - The basic [**Mechanical Design**](design.md) of the machine ...
