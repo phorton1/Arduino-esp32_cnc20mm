@@ -26,6 +26,7 @@ and/or created that go into the [Controller Box](box.md), and includes the follo
 - the [LED Strip](#f-led-strip) and cable
 - the [SD Card](#g-sd_card_module) Module and cable
 - other [Cables and Connectors](#h-other-cables-and-connectors)
+- the overall [Wiring Diagram](#i-wiring-diagram) for the machine
 
 
 
@@ -175,6 +176,19 @@ are created in order to assemble the box:
 ![elec-other_cables2.jpg](images/elec-other_cables2.jpg)
 
 
+## I. Wiring Diagram
+
+While completing the *box* and desiging the *machine* I produced the **wiring diagram** and
+figured out how I would make the cables **completely removable** and how I would use the
+**Pheonix Connectors** to hook everything together:
+
+![elec-wiring_diagram.jpg](images/elec-wiring_diagram.jpg)
+
+On the **right** is the *box*, on the **left** are the the machine components like stepper motors,
+limit switches, and so on. The *big blue dotted rectangle* shows the wires (all of them) that
+go the though the **X Drag Chain**, and the *smaller* blue dotted rectangle shows the wires
+that go through the **Y Drag Chain**.   The wires between the *dotted angled lines* are the
+*fixed* wires that go to the far X-axis, held by the **Wire Clamps**.
 
 
 

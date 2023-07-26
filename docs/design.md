@@ -22,17 +22,38 @@ is about 1 foot bigger in each dimension than the work area. In the
 end I settled on a machine with a 4x4 foot work area, that would be about
 5z5 feet in actual size.
 
+![design-full_machine.jpg](images/design-full_machine.jpg)
+
 The design is incremental in that it is only at the end of the design process
 that one needs to narrow in on a specific machine size.  Most of the design
 consideration are independent of the size of the machine.
 
+## A. Belts and Stepper Motors
+
 Note that the belts themselves are not modelled in these designs.  They are
-[15mm HTD 3M Heavy Duty timing belts](https://www.ebay.com/itm/172262894913),
-the dimensions are known, and utilized in the design,
+[15mm HTD 3M Heavy Duty timing belts](https://www.ebay.com/itm/172262894913)
+that I purchased on Ebay.
+The dimensions are known, and utilized in the design,
 but I did not model the belts themselves.
 
+[![design-belts.jpg](images/design-belts.jpg)](https://www.ebay.com/itm/172262894913)
 
-## Z-Axis
+For the main stepper motors, I selected [this](https://www.ebay.com/itm/193676837497) set from Ebay
+which also included the controller boards and power supply and 15mm pullies:
+
+[![design-stepper_set.jpg](images/design-stepper_set.jpg)](https://www.ebay.com/itm/193676837497)
+
+The 76mm 23HS8430B Stepper motors provide plenty of torque for moving the axes around
+
+![design-stepper_big.jpg](images/design-stepper_big.jpg)
+
+and I selected a smaller, [56mm stepper](https://www.ebay.com/itm/264779371700) for the z-axis,
+that I also obtained on Ebay:
+
+[![design-stepper_small.jpg](images/design-stepper_small.jpg)](https://www.ebay.com/itm/264779371700)
+
+
+## B. Z-Axis
 
 I decided to use a store-bought pre-assembled metal Z-Axis that I found
 [here](https://www.ebay.com/itm/144310475410)
@@ -50,8 +71,9 @@ Still, after purchasing it, I had to create an accurate 3D model of it:
 ![design-z_axis_modelled.jpg](images/design-z_axis_modelled.jpg)
 
 
+## C. Y-Axis
 
-## Y-Axis Bearing
+### Y-Axis Bearing
 
 I performed a number of experiments to create linear bearings that
 run on stainless steel tubes.  Initially I placed three regular ball bearings at
@@ -72,7 +94,7 @@ hold the side bearings in place, minimizing the amount of force that
 borne by the 3D printed plastic.
 
 
-## Y-Axis Sled
+### Y-Axis Sled
 
 The Y-Axis Sled brings together four of the Y-Axis bearings
 and two pieces plywood, with a
@@ -97,8 +119,9 @@ between them, the belt is as close to the work surface
 (as low) as possible, while still being between the two tubes.
 
 
+## D. X-Axis
 
-## X-Axis Bearing
+### X-Axis Bearing
 
 For the X-Axis Bearings I settled on using one larger 8mm and two
 smaller 5mm ball bearings in the Y arrangement as shown below.
@@ -112,7 +135,7 @@ the 5mm bearings and bolts and 3D printed plastic,
 are relatively small by comparison.
 
 
-## X-Axis Sled
+### X-Axis Sled
 
 Each X-Axis Sled brings together two of the X-Axis Bearings with
 two sheets of plywood, and two Y Tube Connectors, with 8mm bolts,
@@ -133,18 +156,23 @@ The other main sub-component of the X-Axis sled are the
 ### Y Tube Connectors
 
 The Y Tube connectors are solidly bolted to the Y-Sled with large 8mm bolts,
-and have a compression fitting and smaller 6mm bolt that will lock the tubes
+and have a compression fitting and smaller 5mm bolt that will lock the tubes
 in place.
+
+![design-y_connector.jpg](images/design-y_connector.jpg)
 
 ### Y Belt Tensioners
 
-The Y Belt Tensioners are assymetical.  One side is merely an
-anchor for the belt, and the other side provides an M3 screw mechanism
-to tension the belt.
+The Y Belt Tensioners are assymetical.  One side is used to adjust
+the tension of the belt using an M3 screw mechanism, and the
+other side is fixed, and is merely an anchor for the belt.
+
+![design-y_tensioner_adj.jpg](images/design-y_tensioner_adj.jpg)
+![design-y_tensioner_fixed.jpg](images/design-y_tensioner_fixed.jpg)
 
 
 
-## General X Tube Design
+## E. General X Tube Design
 
 The entire Y Axis assembly, the Z Axis, Y Axis Sled, two Y Tubes, two X-Axis Sleds,
 all the stepper motors, limit switches, and associated wiring
@@ -170,8 +198,7 @@ the anchor and tensioning mechanism for the X belt.  They are mounted to the
 base with four M3 wood screws each.  There is a fixed end on one side, and
 an adjustable end on the other side.
 
-![design-x_tube_stop_fixed.jpg](images/design-x_tube_stop_fixed.jpg)
-![design-x_tube_stop_adj.jpg](images/design-x_tube_stop_adj.jpg)
+![design-x_tube_ends.jpg](images/design-x_tube_ends.jpg)
 
 As with the Y Tubes, the X Tube Ends have a compression fitting and 5mm bolt that
 will lock the tubes in place, and in addition each end has an adjustable stop
@@ -181,16 +208,39 @@ end after I found the belt tension was breaking that part.
 
 
 
-## 4x4 Machine
+## F. 4x4 Machine
 
 The machine is designed to cut **at least** 4x4 feet, or 48x48 inches.
 However, because I wanted to be able to cut cleanly outside the edges,
-and the fact that that I found the laser and spindle had different offsets,
 I ended up making a machine that has a work area of about 50.5" x 49".
 
 ![design-4x4machine.jpg](images/design-4x4machine.jpg)
 
 ### Dimensions
+
+The dimensions of the machine components were determined iteratively based
+on a desire to make the table an exact number of **inches** for easier cutting
+and building.
+That is why most of the dimensiosn of the working parts
+of the machine are not an integral number of inches or millimeters.
+Once I decided that the table would be **62x62"** square, I worked backwards,
+allowing 1/4" of space for the X-Ends from the edges of the table,
+and allowing 2" of space for the X-Drag chain on the near side.
+
+In the **parameterized design**, the *length of the tubes* drives everything
+else
+
+| Item                 | mm         | inches   |
+|----------------------|------------|----------|
+| X_TUBE_LENGTH        | 1552.1 mm  | 61.11 in |
+| Y_TUBE_LENGTH        | 1505.5 mm  | 59.27 in |
+|                      |            |          |
+| X_CENTER_TO_CENTER   | 1449.9 mm  | 57.08 in |
+|                      |            |          |
+| X_TRAVEL             | 1282.1 mm  | 50.48 in |
+| Y_TRAVEL             | 1247.9 mm  | 49.13 in |
+
+
 
 ### Table
 
@@ -200,16 +250,17 @@ table. This means that, theoretically, the remainder of the "machine" can be sep
 from the "table" by removing those two boards, leaving you with a solid table that
 is not actually specific to the machine (except in its general dimensions).
 
-The table is big and heavy.  The legs are detachable so that they can be moved
-separately from the top.
+The table is big and heavy, around 120lbs.  The **legs** are *detachable* so that they can be moved
+separately from the top and are attached by 3 x 1/4" **lag bolts**.
+
+![design-table_assembly.gif](images/design-table_assembly.gif)
 
 In the implementation, I did much of the work with the table top sitting on
 the floor of my work area.    It was only after the machine was basically assembled
 and proven that I added the legs and raised the top off the floor.
 
 
-### Drag Parts
+
 
 
 **Next** - Some Design [**Details**](details.md) for the machine ...
-
