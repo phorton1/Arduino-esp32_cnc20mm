@@ -58,8 +58,9 @@ that I also obtained on Ebay:
 I decided to use a store-bought pre-assembled metal Z-Axis that I found
 [here](https://www.ebay.com/itm/144310475410)
 on ebay.
-This Z-Axis is substantially similar to the Z-Axes on my other CNC3018 machines,
-but, instead of being made of plastic, like the one I printed for the 2nd machine,
+This Z-Axis is substantially similar to the Z-Axes on my other
+[CNC3018](https://github.com/phorton1/Arduino-esp32_cnc3018)
+machines, but, instead of being made of plastic, like the one I printed for the 2nd machine,
 this Z-Azis is made of anodized aluminum, which should be more rigid and precise.
 It was light enough and cheap enough, for me, to ship it here, and doing so saved
 considerable design efforts.
@@ -78,7 +79,7 @@ Still, after purchasing it, I had to create an accurate 3D model of it:
 I performed a number of experiments to create linear bearings that
 run on stainless steel tubes.  Initially I placed three regular ball bearings at
 120 degree angles about the tubes, but found that that approach took
-too much space. The design also evolved as I settled on the parallel plywood
+too much space. The design also evolved as I settled on the **parallel plywood**
 approach to building the X and Y sleds.  In the end I decided to use
 two different sized ball bearings, larger ones supporting the sled,
 and smaller ones to keep it from moving side to side.
@@ -244,10 +245,10 @@ else
 
 ### Table
 
-Note that the X Tubes themselves are attached to a 1x6 "runner"
-that is separately attached to the
-table. This means that, theoretically, the remainder of the "machine" can be separated
-from the "table" by removing those two boards, leaving you with a solid table that
+Note that the X Tubes themselves are attached to a 1x6 or 1x8 "runner"
+that is separately attached to the table.
+This is so that the remainder of the "machine" can be separated
+from the "table" by removing those two boards, leaving one with a solid table that
 is not actually specific to the machine (except in its general dimensions).
 
 The table is big and heavy, around 120lbs.  The **legs** are *detachable* so that they can be moved

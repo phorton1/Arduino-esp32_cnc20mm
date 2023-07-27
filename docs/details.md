@@ -82,19 +82,19 @@ I designed and 3D printed sets of these little brackets to hold them.
 There are **four**  3D printed parts that are screwed into the *Y Drag Support* on top of the **Y-Sled** that
 provide **six** discreet connectors to the Y-Sled ...
 
-- a **four** pin connector for the *Y Stepper Motor*
-- a **four** pin connector for the *Z Stepper Motor*
-- a **two** pin connector for the *Z Limit Switch*
-- a **two** pin connector for the *Z Zero Switch*
-- a **two** pin connector for the *Spindle Power* supply
-- a **three** pin connector for the *Laser Power* Supply and *PWM* signal
+- a **four** pin connector for the **24V** *Y Stepper Motor*
+- a **four** pin connector for the **24V** *Z Stepper Motor*
+- a **two** pin connector for the combined *Z Zero and Limit Switches*
+- a **two** pin connector for an optional *Z Probe*
+- a **two** pin connector for the **100V DC** *Spindle Power* supply
+- a **three** pin connector for the **12V** *Laser Power* supply and *PWM* signal
 
 ![details-connector_brackets.jpg](images/details-connector_brackets.jpg)
 
 .. and *one* 3D printed part that is screwed into each **X-Sled** that provides **two** discreet
 connectors for each sled.
 
-- a **four** pin connector forthe *X Stepper Motor*
+- a **four** pin connector for the **24V** *X Stepper Motor*
 - a **three** pin connector for the *X and Y Limit Switches*
 
 This allows me to, for instance, unplug the **spindle* and replace it with the **laser**,
