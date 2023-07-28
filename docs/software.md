@@ -26,11 +26,10 @@ the information presented in my previous
 
 We then go a little deeper into this instance of the archicture
 by taking a more detailed look at the software, specifically
-the pins used by the PCB and defined in the
-[YAML file](#c-yaml-file-and-pins-used),
-and discuss some of the ramifications
-and characteristics of the ESP32
-[Task Management](#d-esp32-tasks)
+an analysis of the ESP32
+[Task Management](#c-esp32-tasks), the methods used for
+[Serial IO](#d-serial-polling), and a brief look at how
+[Limits](#e-how-limits-are-checked) and how they are checked
 within the program.
 
 
@@ -146,7 +145,6 @@ are a number of different approaches available.
 
 
 <br><br>
-
 ## B. Architecture
 
 ![cnc20mm_architecture.jpg](images/cnc20mm_architecture.jpg)
@@ -230,16 +228,109 @@ state of the limit switches, probe, and overall system state.
 
 
 <br><br>
+## C. ESP32 Tasks
 
-## C. YAML file and Pins Used
+**Task Management** on the ESP32 within the *FluidNC* program and this architecture
+is **not** trivial.  Serious efforts were put into analyzing the *Task Usage* by
+the software to ensure that the most important time critical code (i.e.
+sending pulses to the **stepper motors**) is not impeded by other tasks,
+whether the tasks are created within the FluidNC libraries (like the **gDisplayTask**
+which updates the touch screen display), or by the *hidden* tasks within the
+**ESP32 libraries**.
+
+There are **two cores** on the EPS32.  **Core 1** is used by the ESP32 libraries
+and includes the calls to the Arduino **setup() and loop()** methods, as well
+as any other **hidden tasks** used in those libraries.  Core 1 is also considered
+the **default core** if no *core parameter* is passed into the task creation methods.
+
+**Core 0** is *unused* by the ESP32 libraries, and in my architecture is used for
+the as many *other tasks* in the system as possible.  Note that we need to run
+the **gDisplayTask** on the same core as the ESP32 libraries due to some deep
+issue in the TFT libraries.
+
+*Not all possible tasks are **compiled in** or **instantiated** by default.*
+A number of tasks are implemented in the code, but **not compiled in**
+based on compiler defines. And some other tasks are not **instatiated**
+because we don't *use those features* in our YAML file.
+
+```Perl
+# on    pixelTask         priority:1 stack:4096  core:0           in pixels_cnc20mm.cpp
+# on    gDisplayTask      priority:1 stack:10240 core:default(1)  in FluidNC_UI.cpp                must run on on default core
+# out   screenGrabTask    priority:1 stack:8192  core:0           in FluidNC_UI/gScreenGrab.cpp    compiled out due to #if WITH_SCREEN_GRAB
+# out   limitCheckTask    priority:5 stack:2048  core:default(1)  in FluidNC/gLimits.cpp           compiled out due to #ifdef LATER
+# off   I2SOutTask        priority:1 stack:4096  core:1           in FluidNC/I2SOut.cpp            off unless an ISSO pin is used in the YAML
+# off   shiftInTask       priority:1 stack:4096  core:1           in FluidNC/Machine/i2SIBus.cpp   off unless an I2SI pin is used in the YAML
+# out   monitorI2SInTask  priority:1 stack:4096  core:1           in FluidNC/Machine/I2SIn.cpp     compiled out due to #ifdef MONITOR_I2S_IN
+# off   servoUpdateTask   priority:1 stack:4906  core:1           in FluidNC/Motors/Servo.cpp      only used by Servo Motors and Dynamixel Stepper motors (not by RMT)
+```
 
 
+<br>
+
+## D. Serial Polling
+
+The FluidNC library does **not** have a task to handle serial IO.
+It is purely called by **polling** from the main gcode machine **protocol_main_loop()** method.
+
+
+**In protocol.cpp:**
+
+```C
+Serial.cpp::pollClients(realtime_only)
+    // called with false ONLY from top of protocol_main_loop()
+    // report_status_message(execute_line until there is room to give the line to the gcode interpreter
+    // and otherwise, called with TRUE
+    //    from protocol_do_alarm() on soft or hard limit
+    //    and protocol_exec_rt_system() while waiting for line to execute or next line to be available
+
+// psudocode:
+//	for (auto client : clientq)
+//	        auto source = client->_in;
+//        	int  c      = source->read();
+//		realtime-commands
+//            	if (realtime_only)
+//            		log_error("Only realtime commands are allowed");
+//                	client->_linelen = 0;
+//                	continue;
+//		add to linebuffer
+//		display("GCODE", client->_line and returns client if line is ready
+//
+//	if (realtime_only)
+//        	return NULL;
+//
+//	WebUI::COMMANDS::handle();  // Handles feeding watchdog and ESP restart
+//	WebUI::wifi_services.handle();  // OTA, web_server, telnet_server polling
+//
+//  if (sdcard && sdcard->_readyNext) {
+//      return sdcard->getClient() if line returned OK
+//      report error if not
+//
+//  return NULL
+```
+
+So, the WebUI only does "realtime commands" while a gcode line is pending and/or a
+"job" is running.
+
+
+<br>
+
+## E. How Limits are checked
+
+```C
+	void IRAM_ATTR Stepper::pulse_func()
+		// is the main workhorse it calls probe::tripped() if probing
+
+	// limit pins are attached to change ISR's
+	//     and directly call mc_reset() (if not homing, etc) and
+	//     and set rtAlarm = ExecAlarm::HardLimit
+	// I2SI limit pins are "read" by shiftIn task at 100Hz if use_shift_in
+	//     or at 1Mhz? if by DMA if !use_shift_in
+	//     and call the interrupt handlers as if they were real pins,
+	// Ergo, the shiftInTask (use_shift_in) is needed
+	//     or the DMA interrupt is even more processor intensive.
+	//     BUT none of this is in the UI
+```
 
 <br><br>
-
-## D. ESP32 Tasks
-
-
-
 
 **Next** - some early [**Projects**](projects.md) made using the machine ...
