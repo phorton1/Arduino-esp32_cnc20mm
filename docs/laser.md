@@ -32,6 +32,7 @@ in the end I decided to *throw in the towel* and go ahead buy a
 So, here I present **improvements** to the machine, having to
 do with it's *laser* capabilities, that I **purchased on ebay**:
 
+- Laser Board added to the [Box](box.md)
 - [10W Laser Module](https://www.ebay.com/itm/234291227238)
 - [Air Compressor](https://www.ebay.com/itm/373884754033)
 - [Honeycomb Work Table](https://www.ebay.com/itm/134220198553)
@@ -40,7 +41,32 @@ Note that, as of this writing, I am *considering* yet another upgrade
 to a **multi-diode** laser with an output power in the 20W range
 
 
-## A. 10W Laser Module
+## A. Laser Board added to the Box
+
+The laser expects **Ground, 12V,** and **PWM** signals.
+The [circuit board](electronics.md) I designed only outputs the
+ground and PWM via a JST connector.  So I designed a small PCB
+that takes those the ground and PWM from the circuit board,
+and combines it with a **12V barrel jack** through a **switch**,
+going to a **3 pin Phoenix connector**, and designed a
+3D Printed *add-on* **mount** for it:
+
+![laser-laser_board1.jpg](images/laser-laser_board1.jpg)
+
+I retrofitted this into the box by cutting a **slot** in the plastic
+side of the box with a hot exacto knife, drilling two holes for the
+**M2x12 screws**, and drilling a **hole** in the wooden top for the
+switch to protrude through.  When mounted it looks something like this.
+
+![laser-laser_board2.jpg](images/laser-laser_board2.jpg)
+
+This allows me to turn the laser on and off at the box, and to
+use a separate power supply for the laser.  If needed the power
+supply *could* be increased from 12V to **24V** in the future.
+
+
+
+## B. 10W Laser Module
 
 They advertise these as **80W**, which is, perhaps the *input power*, but
 in general, diode laser advertisements are *stupid and misleading*.
@@ -65,7 +91,7 @@ the result was generally **charred** and unusable.
 
 
 
-## B. Aquarium Air Compressor
+## C. Aquarium Air Compressor
 
 I don't have a **shop compressor**, and did not want to buy one just for this
 purpose.  There are **purpose built** compressors for Lasers but, IMO they
@@ -89,7 +115,7 @@ When the compressor finally arrived, in order to connect the tubing I had to it,
 
 
 
-## C. Honeycomb Laser Table
+## D. Honeycomb Laser Table
 
 One thing that becomes quickly apparent when cutting wood with a laser
 is that you **don't** want it laying directly on top of another piece of wood
@@ -117,4 +143,4 @@ materials.
 
 
 
-**Next** - Various [**Accessories**](acessories.md) for the machine ...
+**Next** - Various [**Accessories**](accessories.md) for the machine ...

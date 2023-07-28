@@ -41,14 +41,16 @@ I managed to *break* one tap in the process, but luckily had extra M3 taps.
 
 You can barely see the holes in the metal tubes in the **below** photo.
 
+![build-wood_parts.jpg](images/build-wood_parts.jpg)
+
 ### Mill the Plywood Pieces
 
-In the following image you can see the **plywood pieces** for the X and Y *Sleds*.
+In the above image you can see the **plywood pieces** for the X and Y *Sleds*.
 After generating the gcode in Fusion 360, I *milled* them on my
 [second cnc3018 machine](https://github.com/phorton1/Arduino-esp32_cnc3018/blob/master/docs/version2.md),
 then *sanded* them and applied 3 coats of **clear polyurathane**.
 
-![build-wood_parts.jpg](images/build-wood_parts.jpg)
+![build-wood_cutting.jpg](images/build-wood_cutting.jpg)
 
 The **four pieces** for the *two* X-Sleds are *identical* and all the holes are *thru-and-thru*, so the
 were parts can be used in either *mirror configuration*.  The two pieces for the Y-Sled are *different*, and

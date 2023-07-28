@@ -15,6 +15,17 @@
 **Notes** --
 **[Projects](projects.md)**
 
+## Todo
+
+movies - milling wood
+movies - laser cutting
+
+electronics - pic of controller board
+laser - pics of actual laser
+accessories - pic(s) of overall vacuum system
+accessories - pic of actual laser scoop
+accessories - pics of actual Brush Attachment
+
 ## Problem - Play in the SS Tubes
 
 

@@ -127,8 +127,6 @@ from ebay:
 It mounts on top of a **5 gallon bucket**, and, along with various hoses and adapters,
 and a quantity of *dryer vent hose*, I created the whole system to vent the air to the outide.
 
-**Todo: insert pic(s) of overall vacuum system**
-
 
 This system will *suck up* the majority of the **dust** and **millings**
 when using the spindle and will *vent* the majority of the **smoke**
@@ -156,7 +154,6 @@ In the second image I show how it attaches to the machine.
 It is designed such that the standard end of hose vacuum plugs
 into the connector with a compression fitting.
 
-**Todo: inser pic of actual laser scoop**
 
 
 ## D. Dust Boot and Brush Attachment
@@ -180,7 +177,6 @@ removed in order to *change bits* in the machine during jobs.
 
 ![access-dust_boot.gif](images/access-dust_boot.gif)
 
-**Todo: insert pics of actual Brush Attachment**.
 
 
 **Next** - Installing and Understanding the [**Software**](software.md) for the machine ...

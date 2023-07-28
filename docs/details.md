@@ -19,13 +19,13 @@
 
 There are two drag chains on the machine.
 
-The X-Axis drag chain has **25 links**, lies on the table and connects to the X-Axis via the **X Drag Bracket**.
+The X-Axis drag chain lies on the table and connects to the X-Axis via the **X Drag Bracket**.
 
 ![details-x_drag_bracket.jpg](images/details-x_drag_bracket.jpg)
 
 ### X Drag Support
 
-The Y-Axis drag chain has **45 links**, and lies on a piece of **plywood** that rides on the two X-Sleds, that
+The Y-Axis drag chain lies on a piece of **plywood** that rides on the two X-Sleds, that
 is additionally supported by a **2x2** between the sleds:
 
 ![details-x_drag_supports.jpg](images/details-x_drag_supports.jpg)
@@ -44,7 +44,9 @@ The links are 38x16 mm internally and about 46 mm wide:
 
 [![details-drag_chain.jpg](images/details-drag_chain.jpg)](https://www.ebay.com/itm/363509464282)
 
-They are assembled onto the machine with **three M3x12 wood** screws at each end:
+They are assembled onto the machine with **three M3x12 wood** screws at each end.
+The X-Axis drag chain has **25 links** and
+the Y-Axis drag chain has **45 links**.
 
 ![details-drag_chains.jpg](images/details-drag_chains.jpg)
 
