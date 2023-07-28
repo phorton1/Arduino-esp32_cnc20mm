@@ -115,6 +115,10 @@ and increasing to being continuously lit at *full power*.
 
 ![access-vac_pcb.jpg](images/access-vac_pcb.jpg)
 
+When assembled it looks like this:
+
+![access-vac_controller.jpg](images/access-vac_controller.jpg)
+
 
 ## B. Filtration System
 

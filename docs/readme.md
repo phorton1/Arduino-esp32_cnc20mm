@@ -65,7 +65,14 @@ R38 18x37 Drag Chain Model from Darko Saric Lukendic https://grabcad.com/library
 ## License
 
 
-## Also See
+## Please Also See
+
+- cnc3018
+- vMachine
+- FluidNC
+- FluidNC_UI
+- FluidNC_Extensions
+
 
 
 **Next** - The basic [**Mechanical Design**](design.md) of the machine ...

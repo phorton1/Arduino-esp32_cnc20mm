@@ -61,6 +61,11 @@ thej with UV epoxy and exposing the epoxy with a UV laser,
 removing the unexposed epoxy then drilling the holes and
 cutting out the boards.
 
+**PLEASE SEE** the
+[note](notes.md#stepper-motor-settings)
+for information on how to set the switch settings
+on the Stepper Motors
+[Controller Boards](notes.md#stepper-motor-settings).
 
 
 ## A. Controller Schematic
