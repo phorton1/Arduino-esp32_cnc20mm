@@ -23,7 +23,7 @@ I collected and created the **many parts** that were necessary to build the mach
 
 
 In building the [initial Y-axis](y_axis.md) I had already 3D printed and tested the
-[Y-axis Bearings](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#y-axis-bearing),
+[Y-axis Bearings](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#y-axis-bearing),
 shown below, and cut the *Y-Tubes* to length.
 
 ![build-y_bearings.jpg](images/build-y_bearings.jpg)
@@ -47,7 +47,7 @@ You can barely see the holes in the metal tubes in the **below** photo.
 
 In the above image you can see the **plywood pieces** for the X and Y *Sleds*.
 After generating the gcode in Fusion 360, I *milled* them on my
-[second cnc3018 machine](https://github.com/phorton1/Arduino-esp32_cnc3018/blob/master/docs/version2.md),
+[second cnc3018 machine](https://github.com/phorton1/Arduino-esp32_cnc3018/tree/master/docs/version2.md),
 then *sanded* them and applied 3 coats of **clear polyurathane**.
 
 ![build-wood_cutting.jpg](images/build-wood_cutting.jpg)
@@ -86,9 +86,9 @@ assorted **Pheonix** electrical connectors in the trays.
 ### Sub-Assemblies
 
 The
-[**X-Sleds**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#x-axis-sled)
+[**X-Sleds**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#x-axis-sled)
 and
-[**Y-Sled**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#y-axis-sled)
+[**Y-Sled**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#y-axis-sled)
 were separately assembled. That process is not shown on this
 page, but is pretty straight forward.
 
@@ -108,7 +108,7 @@ of my work area.
 ### X-Tubes
 
 After mounting the **1x6" and 1x8" runners** to the table I attached the
-[X-Tube supports](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#x-tube-supports)
+[X-Tube supports](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#x-tube-supports)
 to the X-Tubes and carefully **aligned them** and screwed them onto the machine:
 
 ![build-1_xtubes.jpg](images/build-1_xtubes.jpg)
@@ -123,9 +123,9 @@ a flat or square piece of wood to be found in this town!
 ### Sleds and Y-Tubes
 
 After sliding the
-[**X-Sleds**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#x-axis-sled)
+[**X-Sleds**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#x-axis-sled)
 onto the tubes (and supporting them temporarily with some wooden blocks), I attached the
-[**X-Tube Ends**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#x-tube-ends)
+[**X-Tube Ends**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#x-tube-ends)
 to the tubes and screwed them onto the machine.
 
 Then in a *somewhat tricky* assembly maneuver, I slid each of the *Y-Tubes* through one of the
@@ -135,7 +135,7 @@ to support the Y-Sled at the approximate necessary height, and in line, with som
 ### Attach Drag Supports and Chains
 
 When the basic **Axes** were assembled, I added the
-[**Drag Supports and Chains**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/details.md#a-drag-supports-and-chains)
+[**Drag Supports and Chains**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/details.md#a-drag-supports-and-chains)
 resulting in the machine looking like this:
 
 ![build-2_ytubes.jpg](images/build-2_ytubes.jpg)
@@ -173,12 +173,12 @@ place the [controller box](box.md) in a convenient position.
 ## D. Belts
 
 Then it was time to **cut** the
-[**15 mm belts**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#a-belts-and-stepper-motors)
+[**15 mm belts**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#a-belts-and-stepper-motors)
 to length, thread them through the **idlers and pullies**
 and attach them to the
-[**X**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#x-tube-ends)
+[**X**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#x-tube-ends)
 and
-[**Y**](https://github.com/phorton1/Arduino-esp32_cnc20mm/blob/master/docs/design.md#y-belt-tensioners)
+[**Y**](https://github.com/phorton1/Arduino-esp32_cnc20mm/tree/master/docs/design.md#y-belt-tensioners)
 tensioners.
 
 ![build-5_belts1.jpg](images/build-5_belts1.jpg)

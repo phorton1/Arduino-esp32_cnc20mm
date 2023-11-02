@@ -5,8 +5,8 @@
 #ifdef WITH_PIXELS
 
 	#include "pixels_20mm.h"
-	#include <gStatus.h>				// FluidNC_extensions
-	#include <gActions.h>				// FluidNC_extensions
+	#include <gStatus.h>				// FluidNC_Extensions
+	#include <gActions.h>				// FluidNC_Extensions
 	#include <Machine/MachineConfig.h>	// FluidNC
 
 	Adafruit_NeoPixel pixels(NUM_PIXELS,G_PIN_LEDS_OUT);

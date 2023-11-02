@@ -45,10 +45,10 @@
 #define WITH_PIXELS     // requires adafruitNeoPixels
 
 #include <Machine/MachineConfig.h>  // FluidNC - required
-#include <FluidDebug.h>             // FluidNC_extensions
+#include <FluidDebug.h>             // FluidNC_Extensions
 
 #ifdef WITH_MESH
-    #include <Mesh.h>               // FluidNC_extensions
+    #include <Mesh.h>               // FluidNC_Extensions
 #endif
 
 //-----------------------------------

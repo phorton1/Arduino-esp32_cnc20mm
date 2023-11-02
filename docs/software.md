@@ -57,7 +57,7 @@ Some of these libraries have additional dependencies on other libraries.
 Please follow the instructions on the linked pages to install each library and it's dependencies.
 
 - install my version of the [**FluidNC**](https://github.com/phorton1/Arduino-libraries-FluidNC) library and it's dependencies
-- install my [**FluidNC_extensions**](https://github.com/phorton1/Arduino-libraries-FluidNC_extensions) library
+- install my [**FluidNC_Extensions**](https://github.com/phorton1/Arduino-libraries-FluidNC_Extensions) library
 - since the machine is built with the TFT Display you need to install
   my [**FluidNC_UI**](https://github.com/phorton1/Arduino-libraries-FluidNC_UI) library
 - and since we the machine is built with ws2812b LEDS you need to install
@@ -176,13 +176,13 @@ things above them.  Components at the same level in the diagrams have *varying
 degrees* of visibility of one another, depending on the detailed design.
 
 The machine makes use of my
-[**FluidNC_extensions**](https://github.com/phorton1/Arduino-libraries-FluidNC_extensions)
+[**FluidNC_Extensions**](https://github.com/phorton1/Arduino-libraries-FluidNC_Extensions)
 library and my
 [**FluidNC_UI**](https://github.com/phorton1/Arduino-libraries-FluidNC_UI)
 library  The FluidNC_UI library is in turn, dependent on the
 [**TFT_eSPI**](https://github.com/phorton1/Arduino-libraries-TFT_eSPI)
 library which is shown in **red**.
-Within the FluidNC_extensions library there are a number
+Within the FluidNC_Extensions library there are a number
 of components including the **gStatus**, **gActions**, and **gDebug**
 objects and methods.
 

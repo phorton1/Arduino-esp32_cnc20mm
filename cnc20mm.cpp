@@ -2,7 +2,7 @@
 
 #include "cnc20mm.h"
 #include "pixels_20mm.h"
-#include <YamlOverrides.h>	// FluidNC_extensions
+#include <YamlOverrides.h>	// FluidNC_Extensions
 	// can be commented out to disable extension
 
 #define DEBUG_YAML 	0

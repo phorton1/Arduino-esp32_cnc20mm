@@ -16,8 +16,8 @@
 **[Projects](projects.md)**
 
 I purchased a 500W Spindle and Power Suppl, and designed
-this box around it.  I decided to keep it separate from the main [CNC
-Controller Box](box.md) in case I wanted to change to a different spindle
+this box around it.  I decided to keep it separate from the main
+[CNC Controller Box](box.md) in case I wanted to change to a different spindle
 in the future:
 
 ![spindle-box_design.jpg](images/spindle-box_design.jpg)

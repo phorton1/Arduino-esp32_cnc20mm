@@ -3,7 +3,7 @@
 **[Home](readme.md)** --
 **[Design](design.md)** --
 **[Details](details.md)** --
-**[Electronics](electron77ics.md)** --
+**[Electronics](electronics.md)** --
 **[Box](box.md)** --
 **[Spindle](spindle.md)** --
 **[Y-Axis](y_axis.md)** --
@@ -28,7 +28,9 @@ a **vacuum system** to remove dust and smoke.
 
 No way I'm gonna sit in a room while a shop vac runs for hours at a time!
 
-There is a [separate project](https://github.com/phorton1/Arduino-vacuum1)
+TODO: Arduino-vacuum1 repo
+
+There is an *as yet **unpublished** project*
 for the *controller PCB* and *3D printed box* I made for this subproject,
 but basically I modified a small Shop Vac to replace it's loud and inefficient
 motor with a *quiet and efficient* **brushless DC motor**.  Here is the
